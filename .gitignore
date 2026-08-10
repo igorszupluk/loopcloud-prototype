@@ -1,0 +1,5 @@
+.vercel/
+*.png
+*.jpg
+*.jpeg
+.DS_Store

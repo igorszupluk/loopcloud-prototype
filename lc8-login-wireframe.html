@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Log in — Loopcloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;color:#fff;font-family:'Be Vietnam Pro',sans-serif;min-height:100vh;display:flex;flex-direction:column}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-logo img{height:20px;width:auto;display:block}
+.nav-right{font-size:12px;color:rgba(255,255,255,.4)}
+.nav-right a{color:rgba(255,255,255,.6);text-decoration:none}
+.nav-right a:hover{color:#fff}
+
+.page{flex:1;display:flex;align-items:center;justify-content:center;padding:64px 24px}
+
+.card{width:100%;max-width:400px}
+.card-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:24px}
+.card-h1{font-size:32px;font-weight:800;letter-spacing:-1px;margin-bottom:8px}
+.card-sub{font-size:14px;font-weight:300;color:rgba(255,255,255,.5);margin-bottom:32px;line-height:1.6}
+
+.google-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-family:'Be Vietnam Pro',sans-serif;font-size:14px;font-weight:500;padding:13px;border-radius:2px;cursor:pointer;margin-bottom:20px;transition:background .15s}
+.google-btn:hover{background:rgba(255,255,255,.1)}
+.google-icon{width:18px;height:18px}
+
+.divider{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.divider-line{flex:1;height:1px;background:rgba(255,255,255,.08)}
+.divider-text{font-size:11px;color:rgba(255,255,255,.3);font-weight:500;letter-spacing:.05em}
+
+.field{margin-bottom:14px}
+.field label{display:block;font-size:11px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px}
+.field input{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);color:#fff;font-family:'Be Vietnam Pro',sans-serif;font-size:14px;font-weight:400;padding:12px 14px;border-radius:2px;outline:none;transition:border-color .15s}
+.field input:focus{border-color:rgba(255,245,0,.4)}
+.field input::placeholder{color:rgba(255,255,255,.2)}
+
+.forgot{display:block;text-align:right;font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;margin-top:-8px;margin-bottom:20px}
+.forgot:hover{color:#fff500}
+
+.submit-btn{width:100%;background:#fff500;color:#000;font-family:'Be Vietnam Pro',sans-serif;font-size:15px;font-weight:800;padding:14px;border:none;border-radius:2px;cursor:pointer;margin-top:4px;transition:opacity .15s}
+.submit-btn:hover{opacity:.9}
+
+.footer-note{text-align:center;margin-top:24px;font-size:13px;color:rgba(255,255,255,.35)}
+.footer-note a{color:rgba(255,255,255,.6);text-decoration:none}
+.footer-note a:hover{color:#fff500}
+
+.step-bar{display:none}
+</style>
+</head><body>
+
+<nav>
+  <a href="lc8-landing-wireframe.html" class="nav-logo"><img src="lc8-logo.svg" alt="Loopcloud"></a>
+  <span class="nav-right">No account? <a href="lc8-trial-signup-wireframe.html">Start free trial →</a></span>
+</nav>
+
+<div class="page">
+  <div class="card">
+    <p class="card-label">Welcome back</p>
+    <h1 class="card-h1">Log in to Loopcloud</h1>
+    <p class="card-sub">Access your library, credits, and Jams.</p>
+
+    <button class="google-btn">
+      <svg class="google-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+        <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" fill="#34A853"/>
+        <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+        <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+      </svg>
+      Continue with Google
+    </button>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-text">or</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="field">
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" placeholder="••••••••">
+    </div>
+    <a href="#" class="forgot">Forgot password?</a>
+
+    <button class="submit-btn" onclick="window.location='lc8-account-wireframe.html'">Log in →</button>
+
+    <p class="footer-note">New here? <a href="lc8-trial-signup-wireframe.html">Start your free trial</a></p>
+  </div>
+</div>
+
+</body></html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Start Your Trial — Loopcloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.checkout-nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between}
+.secure-badge{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)}
+.checkout-wrap{display:grid;grid-template-columns:1fr 400px;min-height:calc(100vh - 100px)}
+@media(max-width:840px){.checkout-wrap{grid-template-columns:1fr}.checkout-aside{display:none}}
+.checkout-main{padding:48px 56px;max-width:560px}
+.checkout-aside{background:var(--surface);border-left:1px solid var(--border);padding:48px 36px;position:sticky;top:100px;align-self:start;max-height:calc(100vh - 120px);overflow-y:auto}
+
+.account-bar{display:flex;align-items:center;justify-content:space-between;background:rgba(255,245,0,.04);border:1px solid rgba(255,245,0,.12);border-radius:4px;padding:10px 14px;margin-bottom:24px}
+.account-bar-email{font-size:13px;color:var(--white);display:flex;align-items:center;gap:8px}
+.account-bar-email::before{content:'✓';color:var(--brand);font-weight:700;font-size:11px}
+.account-bar-change{font-size:11px;color:var(--muted);text-decoration:none;transition:color .15s}
+.account-bar-change:hover{color:var(--white)}
+
+.trial-notice{background:rgba(255,245,0,.06);border:1px solid rgba(255,245,0,.18);border-radius:4px;padding:14px 16px;font-size:13px;color:var(--concrete);line-height:1.65;margin-bottom:28px}
+.trial-notice strong{color:var(--brand)}
+.section-title{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:block}
+.card-wrap{position:relative;margin-bottom:10px}
+.card-wrap input{padding-right:76px}
+.card-brands{position:absolute;right:12px;top:50%;transform:translateY(-50%);display:flex;gap:4px}
+.card-brand{width:30px;height:19px;border-radius:3px;border:1px solid var(--border-lt);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:800;letter-spacing:.5px}
+.card-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px}
+.checkout-btn{width:100%;background:var(--brand);color:var(--black);font-family:var(--font);font-size:15px;font-weight:800;padding:16px;border:none;border-radius:2px;cursor:pointer;margin-top:8px;letter-spacing:.01em;transition:opacity .15s}
+.checkout-btn:hover{opacity:.9}
+.security-row{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:14px;font-size:11px;color:var(--muted);flex-wrap:wrap}
+.card-logo{width:32px;height:20px;border-radius:3px;border:1px solid var(--border);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;color:#bbb}
+.fine-print{font-size:11px;color:var(--muted);line-height:1.7;margin-top:14px;text-align:center}
+.fine-print a{color:var(--concrete);text-decoration:underline}
+.free-alt{font-size:11px;color:var(--muted);text-align:center;margin-top:10px}
+.free-alt a{color:var(--brand);text-decoration:none}
+
+.plan-selector{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.plan-opt{padding:11px 12px;border:1px solid var(--border-lt);border-radius:4px;cursor:pointer;transition:border-color .15s}
+.plan-opt.selected{border-color:var(--brand);background:rgba(255,245,0,.04)}
+.plan-opt-name{font-size:12px;font-weight:700;color:var(--white);margin-bottom:2px}
+.plan-opt.selected .plan-opt-name{color:var(--brand)}
+.plan-opt-detail{font-size:11px;color:var(--muted)}
+.plan-price-row{display:flex;align-items:baseline;gap:4px;margin-bottom:4px}
+.plan-price-amount{font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--brand)}
+.plan-price-unit{font-size:12px;color:var(--muted)}
+.annual-toggle{font-size:11px;color:var(--muted);text-decoration:none;display:block;margin-bottom:16px}
+.annual-toggle:hover{color:var(--white)}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.feat-list li{font-size:12px;font-weight:300;color:var(--concrete);display:flex;align-items:flex-start;gap:7px}
+.feat-list li::before{content:'✓';color:var(--brand);font-weight:700;font-size:10px;flex-shrink:0;margin-top:1px}
+
+.timeline{border-top:1px solid var(--border);margin-top:18px;padding-top:18px;display:flex;flex-direction:column;gap:14px}
+.tl-row{display:flex;gap:12px;position:relative}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:var(--brand);flex-shrink:0;margin-top:3px}
+.tl-dot.empty{background:transparent;border:1.5px solid var(--muted)}
+.tl-date{font-size:11px;font-weight:700;color:var(--white);margin-bottom:2px}
+.tl-desc{font-size:11px;font-weight:300;color:var(--muted)}
+.guarantees{border-top:1px solid var(--border);margin-top:18px;padding-top:18px;display:flex;flex-direction:column;gap:8px}
+.guarantee{font-size:12px;color:var(--concrete);display:flex;align-items:flex-start;gap:7px}
+.guarantee::before{content:'✓';color:var(--brand);font-weight:700;font-size:10px;flex-shrink:0;margin-top:1px}
+.change-plan{display:block;margin-top:14px;font-size:11px;color:var(--muted);text-decoration:none}
+.change-plan:hover{color:var(--white)}
+</style>
+<script>
+function trialEnd(){
+  var d=new Date();d.setDate(d.getDate()+14);
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+}
+function reminder(){
+  var d=new Date();d.setDate(d.getDate()+7);
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'long'});
+}
+function formatCard(e){
+  var v=e.target.value.replace(/\D/g,'').substring(0,16);
+  var parts=[];for(var i=0;i<v.length;i+=4)parts.push(v.substring(i,i+4));
+  e.target.value=parts.join(' ');
+}
+function formatExpiry(e){
+  var v=e.target.value.replace(/\D/g,'').substring(0,4);
+  if(v.length>2)v=v.substring(0,2)+' / '+v.substring(2);
+  e.target.value=v;
+}
+function selectPlan(el,name,price,detail){
+  document.querySelectorAll('.plan-opt').forEach(function(p){p.classList.remove('selected');});
+  el.classList.add('selected');
+  document.getElementById('sel-plan').textContent=name+' Plan';
+  document.getElementById('sel-price').textContent=price;
+  document.getElementById('btn-price').textContent=price+'/mo';
+  document.getElementById('fine-price').textContent=price+'/month';
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var te=trialEnd();
+  document.querySelectorAll('[data-trial]').forEach(function(el){el.textContent=te;});
+  document.getElementById('tl-remind').textContent=reminder();
+});
+</script>
+</head><body>
+
+<nav class="checkout-nav">
+  <a href="lc8-landing-wireframe.html" class="nav-logo"><img src="lc8-logo.svg" alt="Loopcloud" style="height:18px;width:auto;display:block"></a>
+  <div class="secure-badge">🔒 Secure checkout · 256-bit SSL</div>
+  <a href="#" style="font-size:12px;color:var(--muted);text-decoration:none">Need help?</a>
+</nav>
+
+<div class="step-bar">
+  <div class="step-item done"><div class="step-num">✓</div> Account</div>
+  <span class="step-arrow" style="padding:0 4px">›</span>
+  <div class="step-item active"><div class="step-num">2</div> Payment</div>
+  <span class="step-arrow" style="padding:0 4px">›</span>
+  <div class="step-item"><div class="step-num">3</div> Confirmed</div>
+</div>
+
+<div class="checkout-wrap">
+
+  <!-- PAYMENT FORM -->
+  <div class="checkout-main">
+    <div class="account-bar">
+      <span class="account-bar-email">you@email.com</span>
+      <a href="lc8-trial-signup-wireframe.html" class="account-bar-change">Change →</a>
+    </div>
+
+    <h1 style="font-size:26px;font-weight:800;letter-spacing:-1px;margin-bottom:8px">Start your 14-day trial</h1>
+    <div class="trial-notice">
+      <strong>£0.00 due today.</strong> Your first payment isn't charged until <strong><span data-trial></span></strong>. Cancel any time before then.
+    </div>
+
+    <span class="section-title">Payment details</span>
+    <div class="card-wrap">
+      <input class="form-input" type="text" id="card-num" placeholder="Card number" oninput="formatCard(event)" inputmode="numeric" autocomplete="cc-number" maxlength="19">
+      <div class="card-brands">
+        <div class="card-brand" style="color:#1a1f71;background:#e8f0fd;border-color:#c5d4f5">VISA</div>
+        <div class="card-brand" style="background:linear-gradient(90deg,#eb001b 50%,#f79e1b 50%);color:transparent;border:none"></div>
+      </div>
+    </div>
+    <div class="card-row">
+      <input class="form-input" type="text" placeholder="MM / YY" oninput="formatExpiry(event)" inputmode="numeric" autocomplete="cc-exp" maxlength="7">
+      <input class="form-input" type="text" placeholder="CVC" inputmode="numeric" autocomplete="cc-csc" maxlength="4">
+      <input class="form-input" type="text" placeholder="Postcode" autocomplete="postal-code">
+    </div>
+    <div style="margin-bottom:10px"><input class="form-input" type="text" placeholder="Name on card" autocomplete="cc-name"></div>
+
+    <button class="checkout-btn" onclick="window.location='lc8-success.html'">
+      Start 14-day trial — free today
+    </button>
+
+    <div class="security-row">
+      <span>🔒 Secured by Stripe</span>
+      <div class="card-logo" style="color:#1a1f71;background:#e8f0fd;border-color:#c5d4f5">VISA</div>
+      <div class="card-logo" style="background:linear-gradient(90deg,#eb001b 50%,#f79e1b 50%);border:none"></div>
+      <div class="card-logo" style="color:#006fcf;font-size:6px;letter-spacing:.5px">AMEX</div>
+    </div>
+
+    <p class="fine-print">
+      By starting your trial you agree to Loopcloud's <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+      You'll be charged <strong id="fine-price" style="color:var(--white)">£11.99/month</strong> after your trial ends on <strong style="color:var(--white)" data-trial></strong> unless you cancel.
+    </p>
+    <p class="free-alt">Or, <a href="lc8-download-wireframe.html">download the free app</a> — no card, explore without commitment.</p>
+  </div>
+
+  <!-- ORDER SUMMARY -->
+  <div class="checkout-aside">
+    <span class="section-title">Your plan</span>
+    <div class="plan-selector">
+      <div class="plan-opt" onclick="selectPlan(this,'Artist','£7.99','100 sounds/mo')">
+        <div class="plan-opt-name">Artist</div>
+        <div class="plan-opt-detail">£7.99/mo · 100 sounds</div>
+      </div>
+      <div class="plan-opt selected" onclick="selectPlan(this,'Studio','£11.99','250 sounds/mo')">
+        <div class="plan-opt-name">Studio</div>
+        <div class="plan-opt-detail">£11.99/mo · 250 sounds</div>
+      </div>
+      <div class="plan-opt" onclick="selectPlan(this,'Professional','£21.99','500 sounds/mo')">
+        <div class="plan-opt-name">Professional</div>
+        <div class="plan-opt-detail">£21.99/mo · 500 sounds</div>
+      </div>
+      <div class="plan-opt" onclick="selectPlan(this,'Perpetual','TBD','Own forever')">
+        <div class="plan-opt-name" style="font-size:11px">Perpetual</div>
+        <div class="plan-opt-detail">One-time · no monthly fee</div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:2px" id="sel-plan">Studio Plan</div>
+      <div class="plan-price-row">
+        <span class="plan-price-amount" id="sel-price">£11.99</span>
+        <span class="plan-price-unit">/month</span>
+      </div>
+      <a href="#" class="annual-toggle">Switch to annual — save 20% →</a>
+    </div>
+
+    <ul class="feat-list">
+      <li>250 sounds/month · credits roll over</li>
+      <li>Full 5M catalogue · browse unlimited</li>
+      <li>DRUM &amp; PLAY plugins included</li>
+      <li>Offline downloads · 5 GB cloud storage</li>
+      <li>DAW plugin · VST / AU / AAX</li>
+      <li>Mobile app access</li>
+    </ul>
+    <a href="lc8-subscription-wireframe.html" class="change-plan">Compare all plans →</a>
+
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-dot"></div>
+        <div><div class="tl-date">Today — 31 July 2026</div><div class="tl-desc">Trial begins. £0 charged.</div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-dot empty"></div>
+        <div><div class="tl-date" id="tl-remind"></div><div class="tl-desc">We'll email you a reminder.</div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-dot empty"></div>
+        <div><div class="tl-date" data-trial></div><div class="tl-desc">First charge, or cancel before this date.</div></div>
+      </div>
+    </div>
+
+    <div class="guarantees">
+      <div class="guarantee">Cancel any time from your account — no questions</div>
+      <div class="guarantee">Keep every sound you download, even if you cancel</div>
+      <div class="guarantee">30 days notice before any price change</div>
+    </div>
+  </div>
+
+</div>
+</body></html>

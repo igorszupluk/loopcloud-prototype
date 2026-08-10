@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loopcloud 8 — Features</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --main-brand:#fff500;
+  --main-black:#000000;
+  --bg:#0a0a0a;
+  --surface:#111111;
+  --surface2:#161616;
+  --border:#222222;
+  --border-lt:#2e2e2e;
+  --white:#ffffff;
+  --muted:#888888;
+  --muted-lt:#555555;
+  --concrete:#a8a8a8;
+  --purple:#7b3fe4;
+  --purple-lt:#b47fff;
+  --blue:#0d52d6;
+  --blue-lt:#6b9fef;
+  --green:#4caf50;
+  --radius-xxs:2px;
+  --font:'Be Vietnam Pro',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--font);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+
+/* FEATURE NAV */
+.feat-nav{position:sticky;top:72px;z-index:90;background:rgba(10,10,10,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;padding:10px 48px;overflow-x:auto;gap:4px}
+.feat-nav::-webkit-scrollbar{display:none}
+.feat-nav a{font-size:11px;font-weight:600;letter-spacing:0.5px;color:var(--muted);padding:6px 14px;border-radius:2px;white-space:nowrap;text-decoration:none;transition:color .15s,background .15s;display:inline-flex;align-items:center;gap:6px}
+.feat-nav a:hover{color:var(--white)}
+.feat-nav a.active{color:var(--main-brand);background:rgba(255,245,0,0.06)}
+.feat-nav a.new-feat::after{content:'NEW';font-size:6px;font-weight:800;letter-spacing:.8px;background:var(--main-brand);color:var(--main-black);border-radius:2px;padding:1px 3px;line-height:1.4}
+
+/* HERO */
+.hero{padding:80px 48px 72px;text-align:center;background:var(--main-black);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(255,245,0,0.04) 0%,transparent 60%);pointer-events:none}
+.hero-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.hero-h1{font-size:56px;font-weight:800;line-height:1.0;letter-spacing:-2px;margin-bottom:18px;max-width:720px;margin-left:auto;margin-right:auto}
+.hero-h1 em{font-style:normal;color:var(--main-brand)}
+.hero-sub{font-size:16px;font-weight:300;color:var(--concrete);max-width:480px;margin:0 auto 32px}
+.hero-cta{display:inline-flex;align-items:center;gap:12px}
+.btn-primary{background:var(--main-brand);color:var(--main-black);font-size:13px;font-weight:700;padding:13px 26px;border-radius:var(--radius-xxs);text-decoration:none;cursor:pointer;border:none;font-family:var(--font)}
+.btn-ghost{background:transparent;color:var(--concrete);font-size:13px;font-weight:500;padding:13px 20px;border-radius:var(--radius-xxs);border:1px solid var(--border-lt);text-decoration:none;cursor:pointer;font-family:var(--font)}
+
+/* SECTION SHARED */
+.section{border-bottom:1px solid var(--border);width:100%;max-width:1200px;margin-left:auto;margin-right:auto;box-sizing:border-box}
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+.split.rev{direction:rtl}.split.rev>*{direction:ltr}
+.body-col{display:flex;flex-direction:column;justify-content:center;padding:64px 56px;background:var(--main-black)}
+.visual-col{background:var(--surface2);display:flex;align-items:center;justify-content:center;padding:40px 36px;position:relative;overflow:hidden}
+.sec-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.sec-h2{font-size:36px;font-weight:800;line-height:1.05;letter-spacing:-1px;margin-bottom:16px}
+.sec-h2 em{font-style:normal;color:var(--main-brand)}
+.sec-p{font-size:14px;font-weight:300;color:var(--concrete);line-height:1.8;max-width:380px;margin-bottom:28px}
+.benefits{margin-bottom:28px;display:flex;flex-direction:column;gap:10px}
+.benefit{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--concrete);line-height:1.5}
+.check{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;margin-top:1px}
+.check-y{background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.25);color:var(--main-brand)}
+.check-p{background:rgba(123,63,228,0.1);border:1px solid rgba(123,63,228,0.3);color:var(--purple-lt)}
+.check-b{background:rgba(13,82,214,0.1);border:1px solid rgba(13,82,214,0.3);color:var(--blue-lt)}
+.badge-new{display:inline-flex;align-items:center;gap:8px;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:600;margin-bottom:16px}
+.badge-new.purple{background:rgba(123,63,228,0.1);border:1px solid rgba(123,63,228,0.3);color:var(--purple-lt)}
+.badge-new.yellow{background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.25);color:var(--main-brand)}
+.badge-dot{width:6px;height:6px;border-radius:50%}
+.badge-dot.purple{background:var(--purple-lt)}
+.badge-dot.yellow{background:var(--main-brand)}
+.full-section{padding:80px 48px;border-bottom:1px solid var(--border);max-width:1200px;margin-left:auto;margin-right:auto;box-sizing:border-box}.full-section>.two-col,.full-section>*:not(style){max-width:1200px;margin-left:auto;margin-right:auto}
+.ph{background:var(--surface);border:1px dashed var(--border-lt);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted-lt);font-size:11px;font-style:italic;text-align:center;padding:28px 20px}
+.ph-tag{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--border-lt);font-style:normal;margin-bottom:4px}
+
+/* INSPIRE UI */
+.inspire-ui{display:flex;flex-direction:column;gap:16px;width:100%}
+.genre-grid{display:flex;flex-wrap:wrap;gap:8px}
+.g-chip{border:1px solid var(--border-lt);color:var(--concrete);border-radius:100px;padding:6px 16px;font-size:12px;font-family:var(--font)}
+.g-chip.on{background:rgba(123,63,228,0.12);border-color:rgba(123,63,228,0.45);color:var(--purple-lt)}
+.gen-row{background:rgba(123,63,228,0.12);border:1px solid rgba(123,63,228,0.35);border-radius:4px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.gen-label{font-size:12px;font-weight:600;color:var(--purple-lt)}
+.gen-sub{font-size:10px;color:var(--muted);margin-top:2px}
+.gen-btn{background:rgba(123,63,228,0.45);color:#e4baff;border:none;border-radius:var(--radius-xxs);font-size:11px;font-weight:700;padding:8px 16px;font-family:var(--font);cursor:pointer}
+.jam-card{background:var(--surface);border:1px solid var(--border-lt);border-radius:6px;overflow:hidden}
+.jam-head{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.jam-title{font-size:13px;font-weight:600}
+.jam-meta{font-size:10px;color:var(--muted);margin-top:2px}
+.jam-play{font-size:20px;color:rgba(123,63,228,0.6);cursor:pointer}
+.jam-tracks{padding:12px 16px;display:flex;flex-direction:column;gap:6px}
+.jt{display:flex;align-items:center;gap:10px}
+.jt-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);width:52px;flex-shrink:0}
+.jt-bar{flex:1;height:22px;border-radius:var(--radius-xxs);display:flex;align-items:center;padding:0 8px}
+.jt-name{font-size:10px;font-weight:500}
+.jam-foot{padding:10px 16px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.jam-sync{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--muted)}
+.sync-dot{width:6px;height:6px;background:var(--green);border-radius:50%}
+.jam-acts{display:flex;gap:8px}
+.jam-act{font-size:10px;color:var(--muted);border:1px solid var(--border-lt);border-radius:var(--radius-xxs);padding:4px 10px}
+.inspire-note{font-size:10px;color:var(--muted-lt);text-align:center;font-style:italic;padding-top:4px}
+
+/* LISTEN UI */
+.listen-ui{width:100%;display:flex;flex-direction:column;gap:16px}
+.daw-strip{background:var(--surface);border:1px solid var(--border-lt);border-radius:6px;overflow:hidden}
+.daw-strip-head{background:var(--main-black);padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.daw-dots{display:flex;gap:4px}
+.daw-dot{width:8px;height:8px;border-radius:50%;background:var(--border-lt)}
+.daw-title{font-size:10px;color:var(--muted);margin-left:4px}
+.daw-channels{padding:14px;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.ch{display:flex;flex-direction:column;align-items:center;gap:6px}
+.ch-name{font-size:9px;font-weight:600;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+.ch-bar{width:24px;border-radius:2px;display:flex;flex-direction:column;justify-content:flex-end}
+.ch-level{width:100%;border-radius:2px}
+.ch-vst{background:rgba(123,63,228,0.12);border:1px solid rgba(123,63,228,0.4);border-radius:2px;padding:3px 6px;font-size:8px;font-weight:700;color:var(--purple-lt);letter-spacing:0.5px;white-space:nowrap}
+.ch-vst.listen-active{background:rgba(123,63,228,0.25);border-color:rgba(123,63,228,0.7);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.6}}
+.arrow-row{display:flex;align-items:center;justify-content:center;gap:12px;font-size:10px;color:var(--muted)}
+.arrow-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(123,63,228,0.4),transparent)}
+.arrow-icon{color:var(--purple-lt);font-size:16px}
+.lc-results{background:var(--surface);border:1px solid var(--border-lt);border-radius:6px;overflow:hidden}
+.lc-results-head{padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.lc-results-title{font-size:11px;font-weight:600;color:var(--purple-lt)}
+.lc-results-sub{font-size:10px;color:var(--muted)}
+.result-row{padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.result-row:last-child{border-bottom:none}
+.result-play{width:24px;height:24px;border-radius:50%;background:rgba(255,245,0,0.1);border:1px solid rgba(255,245,0,0.25);display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--main-brand);flex-shrink:0}
+.result-info{flex:1}
+.result-name{font-size:11px;font-weight:600}
+.result-pack{font-size:9px;color:var(--muted);margin-top:1px}
+.result-wave{flex:1;height:18px;background:linear-gradient(to right,rgba(255,245,0,0.15),rgba(255,245,0,0.08));border-radius:2px}
+.result-match{font-size:9px;font-weight:700;color:var(--main-brand);flex-shrink:0}
+
+/* DAW INTEGRATION */
+.daw-visual{width:100%;display:flex;flex-direction:column;gap:14px}
+.daw-info-bar{background:var(--surface);border:1px solid var(--border-lt);border-radius:4px;padding:10px 14px;display:flex;gap:24px}
+.daw-info-item{display:flex;flex-direction:column;gap:2px}
+.daw-info-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.daw-info-val{font-size:18px;font-weight:800;color:var(--main-brand)}
+.daw-info-unit{font-size:10px;color:var(--muted)}
+.waveform-row{background:var(--surface);border:1px solid var(--border-lt);border-radius:4px;overflow:hidden}
+.wf-head{padding:8px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.wf-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.wf-bpm{font-size:10px;color:var(--main-brand);font-weight:600}
+.wf-body{padding:12px 14px;display:flex;gap:3px;align-items:center}
+.wf-bar{border-radius:1px}
+.daw-logos{display:flex;gap:10px;flex-wrap:wrap}
+.daw-logo{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:8px 14px;font-size:10px;font-weight:600;color:var(--muted)}
+
+/* DISCOVERY */
+.discovery-inner{padding:80px 48px;max-width:1200px;margin:0 auto}
+.discovery-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:56px;align-items:center}
+.search-mock{background:var(--surface);border:1px solid var(--border-lt);border-radius:6px;overflow:hidden}
+.search-bar{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.search-input-mock{flex:1;background:var(--main-black);border:1px solid var(--border-lt);border-radius:var(--radius-xxs);padding:8px 12px;font-size:12px;color:var(--concrete);font-family:var(--font)}
+.search-filters{padding:10px 16px;border-bottom:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap}
+.filter-chip{background:var(--surface2);border:1px solid var(--border);border-radius:100px;padding:5px 12px;font-size:11px;color:var(--muted)}
+.filter-chip.on{border-color:rgba(255,245,0,0.4);color:var(--main-brand)}
+.sample-list{padding:8px 0}
+.sample-row{padding:8px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
+.sample-row:last-child{border-bottom:none}
+.s-play{width:22px;height:22px;border-radius:50%;background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.2);display:flex;align-items:center;justify-content:center;font-size:7px;color:var(--main-brand);flex-shrink:0}
+.s-info{flex:1}
+.s-name{font-size:11px;font-weight:600}
+.s-meta{font-size:9px;color:var(--muted);margin-top:1px}
+.s-wave{width:80px;height:16px;background:rgba(255,255,255,0.06);border-radius:1px;flex-shrink:0}
+.s-bpm{font-size:9px;color:var(--muted);width:40px;text-align:right;flex-shrink:0}
+.s-key{font-size:9px;color:var(--main-brand);font-weight:600;width:24px;text-align:right;flex-shrink:0}
+.stats-strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.stat-cell{padding:28px 32px;text-align:center;border-right:1px solid var(--border)}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-size:36px;font-weight:800;letter-spacing:-1px;color:var(--main-brand)}
+.stat-label{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* STUDIO */
+.studio-inner{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+.studio-body{display:flex;flex-direction:column;justify-content:center;padding:64px 56px;background:var(--main-black)}
+.studio-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.sf-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:18px 16px}
+.sf-title{font-size:13px;font-weight:700;margin-bottom:6px}
+.sf-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.studio-visual{background:var(--surface2);display:flex;align-items:center;justify-content:center;padding:40px}
+.studio-ph{width:100%;aspect-ratio:4/3}
+
+/* PLUGIN SUITE */
+.plugins-inner{padding:80px 48px;max-width:1200px;margin:0 auto}
+.plugins-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+.plugin-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.plugin-card-hero{height:200px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);position:relative}
+.plugin-card-label{position:absolute;top:12px;left:12px;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:var(--main-brand);color:var(--main-black);padding:3px 8px;border-radius:1px}
+.plugin-card-body{padding:20px 20px 24px}
+.plugin-card-name{font-size:18px;font-weight:800;letter-spacing:-0.5px;margin-bottom:8px}
+.plugin-card-desc{font-size:13px;color:var(--concrete);line-height:1.65;margin-bottom:16px}
+.plugin-tags{display:flex;gap:6px;flex-wrap:wrap}
+.plugin-tag{background:var(--surface2);border:1px solid var(--border);border-radius:100px;padding:3px 10px;font-size:10px;color:var(--muted)}
+.plugin-link{font-size:12px;color:var(--main-brand);text-decoration:none;font-weight:600;margin-top:14px;display:inline-block}
+
+/* LIBRARY */
+.library-visual{background:var(--surface2);display:flex;flex-direction:column;gap:12px;padding:36px;justify-content:center}
+.lib-card{background:var(--surface);border:1px solid var(--border-lt);border-radius:4px;overflow:hidden}
+.lib-head{padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.lib-title{font-size:11px;font-weight:600}
+.lib-badge{font-size:9px;color:var(--green);font-weight:600}
+.lib-body{padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.lib-row{display:flex;align-items:center;gap:8px}
+.lib-icon{width:24px;height:24px;background:var(--surface2);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
+.lib-name{font-size:11px;font-weight:500;flex:1}
+.lib-tags-row{display:flex;gap:4px}
+.lib-tag{font-size:9px;background:var(--surface2);border:1px solid var(--border);border-radius:2px;padding:1px 6px;color:var(--muted)}
+
+/* PHILOSOPHY */
+.philosophy{background:var(--surface);border-bottom:1px solid var(--border);padding:56px 48px;max-width:1200px;margin-left:auto;margin-right:auto;box-sizing:border-box}
+.philosophy-inner{max-width:760px;margin:0 auto;text-align:center}
+.phil-mark{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+.phil-quote{font-size:22px;font-weight:300;line-height:1.65;color:var(--white);margin-bottom:20px}
+.phil-quote strong{font-weight:700;color:var(--main-brand)}
+.phil-byline{font-size:12px;color:var(--muted)}
+
+/* FEATURE MATRIX */
+.matrix-inner{padding:80px 48px;max-width:1200px;margin:0 auto}
+.matrix-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:48px}
+.matrix-cell{background:var(--surface);padding:24px 22px}
+.mc-icon{width:32px;height:32px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:14px}
+.mc-title{font-size:13px;font-weight:700;margin-bottom:6px}
+.mc-desc{font-size:12px;color:var(--muted);line-height:1.55}
+
+/* MOBILE */
+.mobile-inner{display:grid;grid-template-columns:1fr 1fr;min-height:440px}
+.mobile-visual{background:var(--surface2);display:flex;align-items:center;justify-content:center;gap:28px;padding:48px 32px}
+.phone{width:136px;background:var(--surface);border:1px solid var(--border-lt);border-radius:20px;overflow:hidden;flex-shrink:0}
+.phone-notch{height:22px;background:var(--bg);display:flex;align-items:center;justify-content:center}
+.phone-pill{width:38px;height:5px;background:var(--border-lt);border-radius:10px}
+.phone-screen{padding:12px 10px}
+.pscreen-label{font-size:7px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.pjam{background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:8px 10px;margin-bottom:5px}
+.pjam-name{font-size:9px;font-weight:600;margin-bottom:2px}
+.pjam-sub{font-size:8px;color:var(--muted)}
+.sync-col{display:flex;flex-direction:column;align-items:center;gap:8px}
+.sync-line{width:1px;height:36px;background:linear-gradient(to bottom,transparent,rgba(255,245,0,0.3),transparent)}
+.sync-icon{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,245,0,0.25);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--main-brand)}
+.desktop-mini{width:190px;background:var(--surface);border:1px solid var(--border-lt);border-radius:8px;overflow:hidden;flex-shrink:0}
+.dtop-bar{height:18px;background:var(--bg);display:flex;align-items:center;padding:0 8px;gap:4px}
+.dtop-dot{width:5px;height:5px;border-radius:50%;background:var(--border-lt)}
+.dtop-screen{padding:10px}
+.dtop-label{font-size:7px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.dtop-jam{background:rgba(123,63,228,0.08);border:1px solid rgba(123,63,228,0.2);border-radius:3px;padding:7px 10px;margin-bottom:7px}
+.dtop-jam-name{font-size:8px;font-weight:600;color:var(--purple-lt);margin-bottom:4px}
+.dtop-tracks{display:flex;flex-direction:column;gap:3px}
+.dtop-track{height:6px;border-radius:1px}
+.dtop-hint{font-size:7px;color:var(--muted);line-height:1.4}
+.mobile-body{display:flex;flex-direction:column;justify-content:center;padding:64px 56px;background:var(--main-black)}
+.careful-note{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--radius-xxs);padding:12px 16px;margin-bottom:24px}
+.careful-title{font-size:11px;font-weight:600;color:var(--concrete);margin-bottom:4px}
+.careful-desc{font-size:12px;color:var(--muted-lt);line-height:1.6}
+
+/* CTA */
+.cta-section{background:var(--main-brand);padding:88px 48px;text-align:center;width:100%}
+.cta-h2{font-size:48px;font-weight:800;letter-spacing:-2px;color:var(--main-black);line-height:1.0;margin-bottom:14px}
+.cta-sub{font-size:15px;color:rgba(0,0,0,0.55);margin-bottom:32px}
+.btn-cta-dark{background:var(--main-black);color:var(--main-brand);font-size:13px;font-weight:700;padding:14px 32px;border-radius:var(--radius-xxs);border:none;font-family:var(--font);cursor:pointer;text-decoration:none;display:inline-block}
+.cta-note{font-size:11px;color:rgba(0,0,0,0.4);margin-top:14px}
+
+/* FOOTER */
+.footer-logo span{color:var(--white);font-weight:300}
+
+/* UTILS */
+.section-hl{text-align:center;margin-bottom:0}
+.section-hl .sec-label{text-align:center}
+.section-hl .sec-h2{font-size:40px;max-width:600px;margin:0 auto 14px}
+.section-hl .sec-p{max-width:520px;margin:0 auto}
+</style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="lc8-landing-wireframe.html" class="nav-logo"><img src="lc8-logo.svg" alt="Loopcloud" style="height:20px;width:auto;display:block"></a>
+  <ul class="nav-links">
+    <li><a href="#" style="pointer-events:none;opacity:.4;cursor:default">Sounds</a></li>
+    <li><a href="lc8-features-wireframe.html" class="active">Features</a></li>
+    <li><a href="lc8-plugin-suite-wireframe.html">Plugin Suite</a></li>
+    <li><a href="lc8-subscription-wireframe.html">Pricing</a></li>
+    <li><a href="lc8-magazine-wireframe.html">Magazine</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="lc8-login-wireframe.html" style="text-decoration:none"><button class="nav-login">Log in</button></a>
+    <a href="lc8-download-wireframe.html" class="nav-cta">Download</a>
+  </div>
+</nav>
+
+<!-- FEATURE NAV -->
+<div class="feat-nav">
+  <a href="#inspire" class="new-feat active">Inspire</a>
+  <a href="#listen" class="new-feat">Listen</a>
+  <a href="#daw">DAW Sync</a>
+  <a href="#discovery">Discovery</a>
+  <a href="#studio">Studio</a>
+  <a href="#plugins">Plugin Suite</a>
+  <a href="#library">Smart Library</a>
+  <a href="#mobile" class="new-feat">Mobile</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Loopcloud 8 — Features</div>
+  <h1 class="hero-h1">Everything you need.<br><em>Nothing slowing you down.</em></h1>
+  <p class="hero-sub">From your first idea to a finished track — Loopcloud 8 is built around how you actually work.</p>
+  <div class="hero-cta">
+    <a href="lc8-subscription-wireframe.html" class="btn-primary">Start free trial</a>
+    <a href="#" class="btn-ghost">Watch overview</a>
+  </div>
+</section>
+
+<!-- S2: INSPIRE -->
+<section class="section" id="inspire">
+  <div class="split">
+    <div class="body-col">
+      <div class="badge-new purple"><div class="badge-dot purple"></div>New in Loopcloud 8</div>
+      <div class="sec-label">Inspire</div>
+      <h2 class="sec-h2">Pick a genre.<br>Build from there.</h2>
+      <p class="sec-p">Blank project anxiety — gone. Choose a sound direction, and Inspire assembles a skeleton from the Loopcloud library: loops that work together across kick, bass, melodics, and atmosphere. We call them Jams. They're yours to break apart, swap out, and build from.</p>
+      <div class="benefits">
+        <div class="benefit"><div class="check check-p">✓</div><span>Finds complementary loops across multiple layers simultaneously</span></div>
+        <div class="benefit"><div class="check check-p">✓</div><span>Jams are saved to your cloud — open them on any device</span></div>
+        <div class="benefit"><div class="check check-p">✓</div><span>Swap any layer, regenerate any section — you decide what stays</span></div>
+        <div class="benefit"><div class="check check-p">✓</div><span>The fastest route from blank project to something worth developing</span></div>
+      </div>
+      <a href="lc8-subscription-wireframe.html" class="btn-primary" style="align-self:flex-start">Try Inspire free</a>
+    </div>
+    <div class="visual-col" style="flex-direction:column;gap:16px">
+      <div class="inspire-ui">
+        <div>
+          <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted-lt);margin-bottom:10px">Choose a vibe</div>
+          <div class="genre-grid">
+            <div class="g-chip on">Deep Techno</div>
+            <div class="g-chip">Lo-Fi Hip-Hop</div>
+            <div class="g-chip">UK Garage</div>
+            <div class="g-chip">Dark Ambient</div>
+            <div class="g-chip">Afrobeats</div>
+            <div class="g-chip">House</div>
+            <div class="g-chip">Drum &amp; Bass</div>
+          </div>
+        </div>
+        <div class="gen-row">
+          <div>
+            <div class="gen-label">Deep Techno · 4 layers</div>
+            <div class="gen-sub">Matching BPM, key, and feel across 5M+ sounds</div>
+          </div>
+          <button class="gen-btn">Build Jam →</button>
+        </div>
+        <div class="jam-card">
+          <div class="jam-head">
+            <div>
+              <div class="jam-title">Deep Techno Jam #4</div>
+              <div class="jam-meta">130 BPM · A Minor · 4 loops</div>
+            </div>
+            <div class="jam-play">▶</div>
+          </div>
+          <div class="jam-tracks">
+            <div class="jt">
+              <div class="jt-label">Kick</div>
+              <div class="jt-bar" style="background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.15)"><span class="jt-name" style="color:var(--main-brand)">Dark Techno Kick 03 — Raw Kicks</span></div>
+            </div>
+            <div class="jt">
+              <div class="jt-label">Bass</div>
+              <div class="jt-bar" style="background:rgba(13,82,214,0.1);border:1px solid rgba(13,82,214,0.2)"><span class="jt-name" style="color:var(--blue-lt)">Deep Sub Wobble 07 — Sub Theory</span></div>
+            </div>
+            <div class="jt">
+              <div class="jt-label">Melodic</div>
+              <div class="jt-bar" style="background:rgba(123,63,228,0.08);border:1px solid rgba(123,63,228,0.2)"><span class="jt-name" style="color:var(--purple-lt)">Dark Synth Pad C 08 — Skyline Pads</span></div>
+            </div>
+            <div class="jt">
+              <div class="jt-label">Atmos</div>
+              <div class="jt-bar" style="background:rgba(168,168,168,0.05);border:1px solid rgba(168,168,168,0.1)"><span class="jt-name" style="color:var(--muted)">Tension Riser 05 — FX Box</span></div>
+            </div>
+          </div>
+          <div class="jam-foot">
+            <div class="jam-sync"><div class="sync-dot"></div>Synced across all your devices</div>
+            <div class="jam-acts"><div class="jam-act">Swap loop</div><div class="jam-act">Export</div></div>
+          </div>
+        </div>
+        <div class="inspire-note">Inspire finds loops that fit together — you decide what to keep.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S3: LISTEN VST -->
+<section class="section" id="listen">
+  <div class="split rev">
+    <div class="body-col">
+      <div class="badge-new yellow"><div class="badge-dot yellow"></div>New in Loopcloud 8</div>
+      <div class="sec-label">Listen</div>
+      <h2 class="sec-h2">Drop it on your master.<br><em>Loopcloud shows you<br>what fits.</em></h2>
+      <p class="sec-p">Listen is a VST plugin you drop on any channel in your DAW — typically the master. It reads what your track sounds like and sends that context to Loopcloud, which surfaces loops that actually complement your mix. No more guessing. No more mismatched samples.</p>
+      <div class="benefits">
+        <div class="benefit"><div class="check check-y">✓</div><span>Works inside any DAW — Ableton, Logic, FL Studio, and more</span></div>
+        <div class="benefit"><div class="check check-y">✓</div><span>Results update as your mix evolves — always relevant to what you've built</span></div>
+        <div class="benefit"><div class="check check-y">✓</div><span>Opens a dedicated results tab in Loopcloud — drag and drop straight into your session</span></div>
+        <div class="benefit"><div class="check check-y">✓</div><span>Included free with all Loopcloud plans</span></div>
+      </div>
+      <a href="lc8-plugin-suite-wireframe.html" class="btn-ghost" style="align-self:flex-start">See all plugins →</a>
+    </div>
+    <div class="visual-col" style="flex-direction:column;gap:16px">
+      <div class="listen-ui">
+        <div class="daw-strip">
+          <div class="daw-strip-head">
+            <div class="daw-dots"><div class="daw-dot"></div><div class="daw-dot"></div><div class="daw-dot"></div></div>
+            <div class="daw-title">Your DAW — Session in progress</div>
+          </div>
+          <div class="daw-channels">
+            <div class="ch">
+              <div class="ch-name">Kick</div>
+              <div class="ch-bar" style="height:60px;background:var(--surface2);border:1px solid var(--border)"><div class="ch-level" style="height:45px;background:rgba(255,245,0,0.4)"></div></div>
+            </div>
+            <div class="ch">
+              <div class="ch-name">Bass</div>
+              <div class="ch-bar" style="height:60px;background:var(--surface2);border:1px solid var(--border)"><div class="ch-level" style="height:30px;background:rgba(13,82,214,0.5)"></div></div>
+            </div>
+            <div class="ch">
+              <div class="ch-name">Synth</div>
+              <div class="ch-bar" style="height:60px;background:var(--surface2);border:1px solid var(--border)"><div class="ch-level" style="height:20px;background:rgba(123,63,228,0.5)"></div></div>
+            </div>
+            <div class="ch">
+              <div class="ch-name">FX</div>
+              <div class="ch-bar" style="height:60px;background:var(--surface2);border:1px solid var(--border)"><div class="ch-level" style="height:12px;background:rgba(168,168,168,0.3)"></div></div>
+            </div>
+            <div class="ch">
+              <div class="ch-name">Master</div>
+              <div class="ch-bar" style="height:60px;background:var(--surface2);border:1px solid var(--border)"><div class="ch-level" style="height:52px;background:rgba(255,255,255,0.25)"></div></div>
+              <div class="ch-vst listen-active">LISTEN</div>
+            </div>
+          </div>
+        </div>
+        <div class="arrow-row">
+          <div class="arrow-line"></div>
+          <div class="arrow-icon">↓</div>
+          <div class="arrow-line"></div>
+        </div>
+        <div class="lc-results">
+          <div class="lc-results-head">
+            <div>
+              <div class="lc-results-title">Matching sounds for your mix</div>
+              <div class="lc-results-sub">Updated live · 130 BPM · A Minor detected</div>
+            </div>
+          </div>
+          <div class="result-row">
+            <div class="result-play">▶</div>
+            <div class="result-info"><div class="result-name">Dark Perc Loop 06</div><div class="result-pack">Industrial Toolkit · 130bpm · Am</div></div>
+            <div class="result-wave"></div>
+            <div class="result-match">98%</div>
+          </div>
+          <div class="result-row">
+            <div class="result-play">▶</div>
+            <div class="result-info"><div class="result-name">Hollow Kick 03</div><div class="result-pack">Techno Architecture · 130bpm · —</div></div>
+            <div class="result-wave"></div>
+            <div class="result-match">94%</div>
+          </div>
+          <div class="result-row">
+            <div class="result-play">▶</div>
+            <div class="result-info"><div class="result-name">Sub Thud 09</div><div class="result-pack">Deep Foundation · 130bpm · Am</div></div>
+            <div class="result-wave"></div>
+            <div class="result-match">91%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S4: DAW INTEGRATION -->
+<section class="section" id="daw">
+  <div class="split">
+    <div class="body-col">
+      <div class="sec-label">DAW Integration</div>
+      <h2 class="sec-h2">In sync with<br><em>your session.</em></h2>
+      <p class="sec-p">Loopcloud reads your DAW's tempo and key in real time. Every sample you preview already fits — no tempo-matching, no guesswork, no interruption to your flow.</p>
+      <div class="benefits">
+        <div class="benefit"><div class="check check-y">✓</div><span>Instant BPM sync via plugin — every preview matches your project tempo</span></div>
+        <div class="benefit"><div class="check check-y">✓</div><span>Key detection highlights harmonically compatible sounds</span></div>
+        <div class="benefit"><div class="check check-y">✓</div><span>Drag-and-drop directly into your DAW timeline</span></div>
+        <div class="benefit"><div class="check check-y">✓</div><span>Works with Ableton, Logic, FL Studio, Bitwig, Cubase, and more</span></div>
+      </div>
+      <div class="daw-logos">
+        <div class="daw-logo">Ableton</div>
+        <div class="daw-logo">Logic Pro</div>
+        <div class="daw-logo">FL Studio</div>
+        <div class="daw-logo">Bitwig</div>
+        <div class="daw-logo">Cubase</div>
+      </div>
+    </div>
+    <div class="visual-col" style="flex-direction:column;gap:14px">
+      <div class="daw-visual">
+        <div class="daw-info-bar">
+          <div class="daw-info-item"><div class="daw-info-label">Tempo</div><div><span class="daw-info-val">128</span><span class="daw-info-unit"> BPM</span></div></div>
+          <div class="daw-info-item"><div class="daw-info-label">Key</div><div><span class="daw-info-val">Dm</span></div></div>
+          <div class="daw-info-item"><div class="daw-info-label">Sync</div><div><span class="daw-info-val" style="font-size:13px;color:var(--green)">● Live</span></div></div>
+        </div>
+        <div class="waveform-row">
+          <div class="wf-head"><div class="wf-label">House Kick Loop 04</div><div class="wf-bpm">128 BPM · matched</div></div>
+          <div class="wf-body">
+            <script>
+            document.currentScript.insertAdjacentHTML('afterend',Array.from({length:40},(_,i)=>{const h=Math.max(4,Math.floor(Math.sin(i*0.7)*14+Math.random()*10+8));const c=i%8===0?'var(--main-brand)':i%2===0?'rgba(255,245,0,0.5)':'rgba(255,245,0,0.2)';return`<div class="wf-bar" style="width:4px;height:${h}px;background:${c}"></div>`}).join(''));
+            </script>
+          </div>
+        </div>
+        <div class="waveform-row">
+          <div class="wf-head"><div class="wf-label">Bass Groove 11</div><div class="wf-bpm">128 BPM · matched</div></div>
+          <div class="wf-body">
+            <script>
+            document.currentScript.insertAdjacentHTML('afterend',Array.from({length:40},(_,i)=>{const h=Math.max(4,Math.floor(Math.cos(i*0.5)*12+Math.random()*8+6));return`<div class="wf-bar" style="width:4px;height:${h}px;background:rgba(13,82,214,${0.3+Math.random()*0.4})"></div>`}).join(''));
+            </script>
+          </div>
+        </div>
+        <div class="ph" style="padding:20px"><div class="ph-tag">Placeholder</div>Screenshot: Loopcloud plugin inside Ableton — synced playback visible</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S5: DISCOVERY -->
+<section class="section" id="discovery">
+  <div class="discovery-inner">
+    <div class="section-hl">
+      <div class="sec-label" style="text-align:center">Sound Discovery</div>
+      <h2 class="sec-h2" style="font-size:40px;text-align:center;max-width:580px;margin:0 auto 14px">Five million sounds.<br><em>Find the one that fits.</em></h2>
+      <p class="sec-p" style="text-align:center;max-width:500px;margin:0 auto 48px">Filter by genre, mood, energy, tempo, key, and instrument. Preview in context with your session. Done. No rabbit holes, no wasted time.</p>
+    </div>
+    <div class="discovery-top">
+      <div>
+        <div class="search-mock">
+          <div class="search-bar">
+            <div class="search-input-mock">dark techno kick 130bpm</div>
+            <div style="background:var(--main-brand);color:var(--main-black);font-size:11px;font-weight:700;padding:6px 12px;border-radius:var(--radius-xxs);cursor:pointer">Search</div>
+          </div>
+          <div class="search-filters">
+            <div class="filter-chip on">All</div>
+            <div class="filter-chip">Loops</div>
+            <div class="filter-chip">One-shots</div>
+            <div class="filter-chip on">130 BPM</div>
+            <div class="filter-chip on">A Minor</div>
+            <div class="filter-chip">Techno</div>
+            <div class="filter-chip">Dark</div>
+          </div>
+          <div class="sample-list">
+            <div class="sample-row"><div class="s-play">▶</div><div class="s-info"><div class="s-name">Dark Techno Kick 03</div><div class="s-meta">Raw Kicks · Loopmasters</div></div><div class="s-wave"></div><div class="s-bpm">130bpm</div><div class="s-key">—</div></div>
+            <div class="sample-row"><div class="s-play">▶</div><div class="s-info"><div class="s-name">Industrial Kick 07</div><div class="s-meta">Techno Architecture · Sample Magic</div></div><div class="s-wave"></div><div class="s-bpm">130bpm</div><div class="s-key">—</div></div>
+            <div class="sample-row"><div class="s-play">▶</div><div class="s-info"><div class="s-name">Warehouse Kick 01</div><div class="s-meta">Club Tools · Underground Audio</div></div><div class="s-wave"></div><div class="s-bpm">130bpm</div><div class="s-key">—</div></div>
+            <div class="sample-row"><div class="s-play">▶</div><div class="s-info"><div class="s-name">Thud Kick Loop D</div><div class="s-meta">Modular Drums · Splice Originals</div></div><div class="s-wave"></div><div class="s-bpm">130bpm</div><div class="s-key">—</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;gap:28px">
+        <div>
+          <h3 style="font-size:22px;font-weight:800;letter-spacing:-0.5px;margin-bottom:10px">Filters that actually matter</h3>
+          <p style="font-size:13px;color:var(--concrete);line-height:1.7">Genre, mood, energy, instrument, BPM range, key — applied instantly across the full catalogue. Results narrow as you type.</p>
+        </div>
+        <div>
+          <h3 style="font-size:22px;font-weight:800;letter-spacing:-0.5px;margin-bottom:10px">Preview in your session</h3>
+          <p style="font-size:13px;color:var(--concrete);line-height:1.7">Every sample plays in sync with your DAW. You hear it as part of your track, not in isolation.</p>
+        </div>
+        <div>
+          <h3 style="font-size:22px;font-weight:800;letter-spacing:-0.5px;margin-bottom:10px">Save and come back</h3>
+          <p style="font-size:13px;color:var(--concrete);line-height:1.7">Bookmark sounds to your Favourites. They'll be there when you need them — across every device.</p>
+        </div>
+      </div>
+    </div>
+    <div class="stats-strip">
+      <div class="stat-cell"><div class="stat-num">5M+</div><div class="stat-label">Sounds in the library</div></div>
+      <div class="stat-cell"><div class="stat-num">250K+</div><div class="stat-label">Sample packs</div></div>
+      <div class="stat-cell"><div class="stat-num">7K+</div><div class="stat-label">Labels and producers</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- S6: STUDIO -->
+<section class="section" id="studio">
+  <div class="studio-inner">
+    <div class="studio-body">
+      <div class="sec-label">Loopcloud Studio</div>
+      <h2 class="sec-h2" style="font-size:32px">Shape sounds before<br><em>they hit your DAW.</em></h2>
+      <p class="sec-p">Chop, pitch, stretch, and slice — directly inside Loopcloud. Less plugin-switching, more making.</p>
+      <div class="studio-features">
+        <div class="sf-card">
+          <div class="sf-title">Slice &amp; Chop</div>
+          <div class="sf-desc">Cut loops into parts, rearrange them, export individual slices</div>
+        </div>
+        <div class="sf-card">
+          <div class="sf-title">Pitch Shift</div>
+          <div class="sf-desc">Transpose up or down without changing tempo — always in key</div>
+        </div>
+        <div class="sf-card">
+          <div class="sf-title">Time Stretch</div>
+          <div class="sf-desc">Fit any loop to your project BPM while preserving character</div>
+        </div>
+        <div class="sf-card">
+          <div class="sf-title">Envelope Edit</div>
+          <div class="sf-desc">Shape the attack and tail of any sample before export</div>
+        </div>
+      </div>
+    </div>
+    <div class="studio-visual">
+      <div class="studio-ph ph"><div class="ph-tag">Placeholder</div>Screenshot: Loopcloud Studio editor — waveform with slice markers visible</div>
+    </div>
+  </div>
+</section>
+
+<!-- S7: PLUGIN SUITE -->
+<section class="section" id="plugins">
+  <div class="plugins-inner">
+    <div class="section-hl">
+      <div class="sec-label" style="text-align:center">Plugin Suite</div>
+      <h2 class="sec-h2" style="font-size:40px;text-align:center;max-width:560px;margin:0 auto 14px">Three plugins.<br><em>Endless combinations.</em></h2>
+      <p class="sec-p" style="text-align:center;max-width:480px;margin:0 auto">Loopcloud's plugin suite brings powerful sound tools directly into your DAW — no round-tripping, no sample management.</p>
+    </div>
+    <div class="plugins-top">
+      <div class="plugin-card">
+        <div class="plugin-card-hero" style="background:var(--main-black)">
+          <div class="plugin-card-label">DRUM</div>
+          <div class="ph" style="width:80%;height:140px"><div class="ph-tag">Placeholder</div>DRUM plugin screenshot</div>
+        </div>
+        <div class="plugin-card-body">
+          <div class="plugin-card-name">Loopcloud DRUM</div>
+          <div class="plugin-card-desc">A pattern-based drum machine drawing directly from the Loopcloud sample library. Build kits, sequence patterns, and swap sounds in seconds — all inside your DAW.</div>
+          <div class="plugin-tags"><div class="plugin-tag">Drum machine</div><div class="plugin-tag">Pattern sequencer</div><div class="plugin-tag">VST / AU</div></div>
+          <a href="lc8-plugin-suite-wireframe.html" class="plugin-link">Learn about DRUM →</a>
+        </div>
+      </div>
+      <div class="plugin-card">
+        <div class="plugin-card-hero" style="background:var(--main-black)">
+          <div class="plugin-card-label">PLAY</div>
+          <div class="ph" style="width:80%;height:140px"><div class="ph-tag">Placeholder</div>PLAY plugin screenshot</div>
+        </div>
+        <div class="plugin-card-body">
+          <div class="plugin-card-name">Loopcloud PLAY</div>
+          <div class="plugin-card-desc">A sample instrument that lets you play any loop or one-shot chromatically across your MIDI keyboard. Pitch, layer, and perform with the full Loopcloud catalogue.</div>
+          <div class="plugin-tags"><div class="plugin-tag">Sample instrument</div><div class="plugin-tag">MIDI playable</div><div class="plugin-tag">VST / AU</div></div>
+          <a href="lc8-plugin-suite-wireframe.html" class="plugin-link">Learn about PLAY →</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="lc8-plugin-suite-wireframe.html" class="btn-ghost">See full Plugin Suite including Listen →</a>
+    </div>
+  </div>
+</section>
+
+<!-- S8: LIBRARY -->
+<section class="section" id="library">
+  <div class="split rev">
+    <div class="body-col">
+      <div class="sec-label">Smart Library</div>
+      <h2 class="sec-h2">Your entire<br>collection — <em>organised<br>automatically.</em></h2>
+      <p class="sec-p">Loopcloud tags every sound you download — by tempo, key, genre, mood, and instrument. Your library stays searchable even as it grows. Everything you've ever owned, one search away.</p>
+      <div class="benefits">
+        <div class="benefit"><div class="check check-y">✓</div><span>Automatic tagging across your entire library on import</span></div>
+        <div class="benefit"><div class="check check-y">✓</div><span>Your owned sounds, your favourites, and Loopcloud streaming — in one place</span></div>
+        <div class="benefit"><div class="check check-y">✓</div><span>Cloud sync across desktop and mobile — no manual file management</span></div>
+        <div class="benefit"><div class="check check-y">✓</div><span>Offline mode for uninterrupted sessions</span></div>
+      </div>
+    </div>
+    <div class="library-visual">
+      <div class="lib-card">
+        <div class="lib-head"><div class="lib-title">My Library</div><div class="lib-badge">● Synced</div></div>
+        <div class="lib-body">
+          <div class="lib-row"><div class="lib-icon">🥁</div><div class="lib-name">Dark Techno Kick 03</div><div class="lib-tags-row"><div class="lib-tag">130bpm</div><div class="lib-tag">Kick</div></div></div>
+          <div class="lib-row"><div class="lib-icon">🎸</div><div class="lib-name">Sub Wobble Bass 07</div><div class="lib-tags-row"><div class="lib-tag">Am</div><div class="lib-tag">Bass</div></div></div>
+          <div class="lib-row"><div class="lib-icon">🎹</div><div class="lib-name">Ambient Pad C 02</div><div class="lib-tags-row"><div class="lib-tag">Melodic</div><div class="lib-tag">Dark</div></div></div>
+          <div class="lib-row"><div class="lib-icon">🎚️</div><div class="lib-name">Tension Riser 05</div><div class="lib-tags-row"><div class="lib-tag">FX</div><div class="lib-tag">Rise</div></div></div>
+          <div class="lib-row"><div class="lib-icon">🥁</div><div class="lib-name">Warehouse Kick 01</div><div class="lib-tags-row"><div class="lib-tag">130bpm</div><div class="lib-tag">Techno</div></div></div>
+        </div>
+      </div>
+      <div style="text-align:center;font-size:11px;color:var(--muted);padding:10px 0">Automatic tags · cloud sync · searchable across 5M+ sounds</div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY STRIP -->
+<section style="background:var(--surface);border-bottom:1px solid var(--border);padding:64px 48px;max-width:1200px;margin-left:auto;margin-right:auto;box-sizing:border-box">
+  <div style="max-width:720px;margin:0 auto;text-align:center">
+    <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:20px">Our Approach</div>
+    <blockquote style="font-size:22px;font-weight:300;line-height:1.7;color:var(--white);border:none;padding:0;margin:0 0 20px">
+      "Loopcloud finds the sounds. <strong style="font-weight:700;color:var(--main-brand)">You make the music.</strong> We believe all creative decisions belong to the human in the room — our job is to get you to the right sound faster."
+    </blockquote>
+    <div style="font-size:12px;color:var(--muted)">Loopcloud · Built for musicians, by musicians</div>
+  </div>
+</section>
+
+<!-- FEATURE MATRIX -->
+<section class="section" id="feature-matrix">
+  <div class="matrix-inner">
+    <div class="section-hl">
+      <div class="sec-label" style="text-align:center">Everything else</div>
+      <h2 class="sec-h2" style="font-size:36px;text-align:center;max-width:500px;margin:0 auto 14px">Built for the way<br><em>you actually work.</em></h2>
+    </div>
+    <div class="matrix-grid">
+      <div class="matrix-cell">
+        <div class="mc-icon" style="background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.15)">⚡</div>
+        <div class="mc-title">Instant Preview</div>
+        <div class="mc-desc">Hear any sample in under 100ms — no buffering, no loading screens</div>
+      </div>
+      <div class="matrix-cell">
+        <div class="mc-icon" style="background:rgba(13,82,214,0.1);border:1px solid rgba(13,82,214,0.2)">🔄</div>
+        <div class="mc-title">Credits System</div>
+        <div class="mc-desc">Download only what you need. Credits roll over — you never lose what you've paid for</div>
+      </div>
+      <div class="matrix-cell">
+        <div class="mc-icon" style="background:rgba(123,63,228,0.1);border:1px solid rgba(123,63,228,0.2)">📦</div>
+        <div class="mc-title">Pack Browser</div>
+        <div class="mc-desc">Browse curated packs by label, genre, or artist. Buy packs outright or cherry-pick loops</div>
+      </div>
+      <div class="matrix-cell">
+        <div class="mc-icon" style="background:rgba(76,175,80,0.1);border:1px solid rgba(76,175,80,0.2)">☁️</div>
+        <div class="mc-title">Cloud Everywhere</div>
+        <div class="mc-desc">Your library, settings, and Jams follow you across every device automatically</div>
+      </div>
+      <div class="matrix-cell">
+        <div class="mc-icon" style="background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.15)">🎯</div>
+        <div class="mc-title">Mood Filtering</div>
+        <div class="mc-desc">Filter by energy and mood — dark, euphoric, melancholic, aggressive — not just genre</div>
+      </div>
+      <div class="matrix-cell">
+        <div class="mc-icon" style="background:rgba(13,82,214,0.1);border:1px solid rgba(13,82,214,0.2)">🏷️</div>
+        <div class="mc-title">Auto-Tagging</div>
+        <div class="mc-desc">Every download is tagged automatically. Your library stays searchable at any size</div>
+      </div>
+      <div class="matrix-cell">
+        <div class="mc-icon" style="background:rgba(123,63,228,0.1);border:1px solid rgba(123,63,228,0.2)">♾️</div>
+        <div class="mc-title">Royalty Free</div>
+        <div class="mc-desc">Everything on Loopcloud is cleared for commercial release — no hidden licensing issues</div>
+      </div>
+      <div class="matrix-cell">
+        <div class="mc-icon" style="background:rgba(168,168,168,0.08);border:1px solid rgba(168,168,168,0.15)">📶</div>
+        <div class="mc-title">Offline Mode</div>
+        <div class="mc-desc">Downloaded content plays without an internet connection — sessions don't stop for wifi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOBILE -->
+<section class="section" id="mobile">
+  <div class="mobile-inner">
+    <div class="mobile-visual">
+      <div class="phone">
+        <div class="phone-notch"><div class="phone-pill"></div></div>
+        <div class="phone-screen">
+          <div class="pscreen-label">Your Jams</div>
+          <div class="pjam"><div class="pjam-name">Deep Techno Jam #4</div><div class="pjam-sub">130bpm · Am · 4 loops</div></div>
+          <div class="pjam"><div class="pjam-name">Lo-Fi Sketch #2</div><div class="pjam-sub">90bpm · Cmaj · 3 loops</div></div>
+          <div style="height:6px"></div>
+          <div class="pscreen-label" style="margin-bottom:6px">Browse</div>
+          <div style="display:flex;gap:4px;margin-bottom:6px">
+            <div style="background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.25);border-radius:10px;padding:3px 8px;font-size:8px;color:var(--main-brand)">Drums</div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:3px 8px;font-size:8px;color:var(--muted)">Bass</div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:3px 8px;font-size:8px;color:var(--muted)">Melodic</div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:6px 8px;margin-bottom:4px"><div style="font-size:8px;font-weight:600;margin-bottom:3px">Dark Kick 03</div><div style="height:8px;background:rgba(255,255,255,0.1);border-radius:1px"></div></div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:6px 8px"><div style="font-size:8px;font-weight:600;margin-bottom:3px">Sub Wobble 07</div><div style="height:8px;background:rgba(255,255,255,0.1);border-radius:1px"></div></div>
+        </div>
+      </div>
+      <div class="sync-col">
+        <div class="sync-line"></div>
+        <div class="sync-icon">⇄</div>
+        <div class="sync-line"></div>
+      </div>
+      <div class="desktop-mini">
+        <div class="dtop-bar"><div class="dtop-dot"></div><div class="dtop-dot"></div><div class="dtop-dot"></div></div>
+        <div class="dtop-screen">
+          <div class="dtop-label">Loopcloud Desktop</div>
+          <div class="dtop-jam">
+            <div class="dtop-jam-name">Jam opened from mobile</div>
+            <div class="dtop-tracks">
+              <div class="dtop-track" style="background:rgba(255,245,0,0.3);width:90%"></div>
+              <div class="dtop-track" style="background:rgba(13,82,214,0.4);width:75%"></div>
+              <div class="dtop-track" style="background:rgba(123,63,228,0.35);width:82%"></div>
+              <div class="dtop-track" style="background:rgba(168,168,168,0.2);width:55%"></div>
+            </div>
+          </div>
+          <div class="dtop-hint">Drag loops into your DAW to continue →</div>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-body">
+      <div class="badge-new yellow" style="margin-bottom:16px"><div class="badge-dot yellow"></div>New in Loopcloud 8</div>
+      <div class="sec-label">Mobile App</div>
+      <h2 class="sec-h2" style="font-size:30px">Your library travels<br>with you. <em>Finish on<br>desktop.</em></h2>
+      <p class="sec-p" style="font-size:13px">The Loopcloud mobile app is built for the moments between sessions — browsing sounds on the commute, reviewing your Jams before a studio day, saving a loop idea before you forget it. When you sit back down at your DAW, everything's already there.</p>
+      <div class="benefits" style="margin-bottom:22px">
+        <div class="benefit"><div class="check check-y">✓</div><span>Browse and save from the full Loopcloud catalogue on iOS and Android</span></div>
+        <div class="benefit"><div class="check check-y">✓</div><span>Your Inspire Jams sync automatically — open them straight on desktop</span></div>
+        <div class="benefit"><div class="check check-y">✓</div><span>Save sounds to your library wherever you are — they'll be waiting in your DAW</span></div>
+      </div>
+      <div class="careful-note">
+        <div class="careful-title">What it's not</div>
+        <div class="careful-desc">The mobile app is a discovery and sync companion — not a production tool. For the full Loopcloud experience with DAW integration, Studio editing, and plugin access, Loopcloud lives on desktop.</div>
+      </div>
+      <a href="#" class="btn-ghost" style="align-self:flex-start">Download for iOS &amp; Android →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-h2">Start with Inspire.<br>Finish the track.</h2>
+  <p class="cta-sub">Try every feature free for 14 days. £0.00 today.</p>
+  <a href="lc8-subscription-wireframe.html" class="btn-cta-dark">Start free trial</a>
+  <div class="cta-note">Works with your existing DAW · Set up in under 2 minutes · Cancel anytime</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="lc8-landing-wireframe.html" style="text-decoration:none"><img src="lc8-logo.svg" alt="Loopcloud" style="height:16px;width:auto;display:block"></a>
+      <p class="footer-tagline">The sample platform for music producers.</p>
+    </div>
+    <div class="footer-newsletter">
+      <p class="footer-newsletter-label">Newsletter</p>
+      <p class="footer-newsletter-desc">New sounds, tutorials, and product updates — straight to your inbox.</p>
+      <div class="footer-newsletter-row">
+        <input class="footer-newsletter-input" type="email" placeholder="your@email.com">
+        <button class="footer-newsletter-btn">Subscribe</button>
+      </div>
+    </div>
+    <div class="footer-links-col">
+      <p class="footer-links-heading">Product</p>
+      <a href="lc8-features-wireframe.html">Features</a>
+      <a href="lc8-plugin-suite-wireframe.html">Plugin Suite</a>
+      <a href="lc8-subscription-wireframe.html">Pricing</a>
+      <a href="lc8-download-wireframe.html">Download</a>
+    </div>
+    <div class="footer-links-col">
+      <p class="footer-links-heading">Explore</p>
+      <a href="lc8-magazine-wireframe.html">Magazine</a>
+      <a href="#" style="pointer-events:none;opacity:.4">Sounds</a>
+      <a href="#">Tutorials</a>
+      <a href="#">Support</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Loopmasters Ltd. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Settings</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

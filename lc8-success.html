@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trial Active — Loopcloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.checkout-nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;height:72px;display:flex;align-items:center;justify-content:center}
+.success-page{max-width:640px;margin:0 auto;padding:64px 24px 96px;text-align:center}
+.check-wrap{width:72px;height:72px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;margin:0 auto 28px;animation:popIn .4s cubic-bezier(.175,.885,.32,1.275) both}
+@keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.check-icon{font-size:32px;color:var(--black);line-height:1}
+.success-h1{font-size:40px;font-weight:800;letter-spacing:-1.5px;margin-bottom:8px}
+.success-sub{font-size:16px;font-weight:300;color:var(--concrete);line-height:1.6;margin-bottom:32px}
+.success-sub strong{color:var(--white)}
+
+.trial-card{background:var(--surface);border:1px solid var(--border-lt);border-radius:8px;padding:20px 24px;margin-bottom:40px;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.trial-field-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.trial-field-value{font-size:14px;font-weight:500;color:var(--white)}
+.trial-field-value.brand{color:var(--brand)}
+
+.next-steps{display:flex;flex-direction:column;gap:1px;margin-bottom:32px}
+.step-card{background:var(--surface);border:1px solid var(--border);padding:20px 24px;display:flex;align-items:flex-start;gap:16px;text-align:left}
+.step-card:first-child{border-radius:6px 6px 0 0}
+.step-card:last-child{border-radius:0 0 6px 6px}
+.step-num-circle{width:28px;height:28px;border-radius:50%;background:rgba(255,245,0,.1);border:1px solid rgba(255,245,0,.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:1px}
+.step-content-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px}
+.step-content-body{font-size:13px;font-weight:300;color:var(--muted);line-height:1.6}
+.step-content-body a{color:var(--brand);text-decoration:none}
+.dl-btn-success{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:var(--black);font-family:var(--font);font-size:13px;font-weight:700;padding:10px 18px;border-radius:2px;text-decoration:none;margin-top:10px;border:none;cursor:pointer;transition:opacity .15s}
+.dl-btn-success:hover{opacity:.9}
+.email-notice{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:10px 16px}
+</style>
+<script>
+function trialEnd(){
+  var d=new Date();d.setDate(d.getDate()+14);
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var te=trialEnd();
+  document.querySelectorAll('[data-trial]').forEach(function(el){el.textContent=te;});
+});
+</script>
+</head><body>
+
+<nav class="checkout-nav">
+  <a href="lc8-landing-wireframe.html"><img src="lc8-logo.svg" alt="Loopcloud" style="height:18px;width:auto;display:block"></a>
+</nav>
+
+<div class="step-bar">
+  <div class="step-item done"><div class="step-num">✓</div> Account</div>
+  <span class="step-arrow" style="padding:0 4px">›</span>
+  <div class="step-item done"><div class="step-num">✓</div> Payment</div>
+  <span class="step-arrow" style="padding:0 4px">›</span>
+  <div class="step-item active"><div class="step-num">3</div> Confirmed</div>
+</div>
+
+<div class="success-page">
+  <div class="check-wrap"><div class="check-icon">✓</div></div>
+
+  <h1 class="success-h1">You're in.</h1>
+  <p class="success-sub">Your 14-day trial starts now.<br>First charge on <strong><span data-trial></span></strong> — cancel any time before then.</p>
+
+  <div class="trial-card">
+    <div>
+      <div class="trial-field-label">Plan</div>
+      <div class="trial-field-value">Studio · £11.99/month</div>
+    </div>
+    <div>
+      <div class="trial-field-label">Trial ends</div>
+      <div class="trial-field-value brand" data-trial></div>
+    </div>
+    <div>
+      <div class="trial-field-label">Account</div>
+      <div class="trial-field-value">you@email.com</div>
+    </div>
+    <div>
+      <div class="trial-field-label">Status</div>
+      <div class="trial-field-value brand">● Active</div>
+    </div>
+  </div>
+
+  <div class="next-steps">
+    <div class="step-card">
+      <div class="step-num-circle">1</div>
+      <div>
+        <div class="step-content-title">Download the app</div>
+        <div class="step-content-body">Mac and Windows. DRUM &amp; PLAY plugins included in your trial.</div>
+        <a href="lc8-download-wireframe.html" class="dl-btn-success">
+          Download Loopcloud
+        </a>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-circle">2</div>
+      <div>
+        <div class="step-content-title">Browse 5 million sounds</div>
+        <div class="step-content-body">Search by genre, mood, BPM, key. Preview in sync with your DAW — drag and drop straight into your session.</div>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-circle">3</div>
+      <div>
+        <div class="step-content-title">Decide before <span data-trial></span></div>
+        <div class="step-content-body">If Loopcloud isn't for you, cancel from your account settings — no questions asked, no charge. Your downloads stay yours.<br><a href="#">Manage subscription →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="email-notice">📧 Confirmation sent to you@email.com</div>
+</div>
+
+</body></html>

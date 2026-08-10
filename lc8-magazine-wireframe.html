@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loopcloud Magazine — Wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --main-brand:  #fff500;
+      --main-black:  #000000;
+      --main-white:  #ffffff;
+      --radius-xxs:  2px;
+      --radius-xs:   4px;
+      --radius-sm:   6px;
+      --radius-md:   8px;
+      --yellow:    var(--main-brand);
+      --black:     var(--main-black);
+      --white:     var(--main-white);
+      --concrete:  #A8A8A8;
+      --bg:        #0a0a0a;
+      --surface:   #111111;
+      --surface2:  #161616;
+      --border:    #222222;
+      --border-lt: #2e2e2e;
+      --text:      #FFFFFF;
+      --muted:     #888888;
+      --muted-lt:  #555555;
+      --radius-lg: var(--radius-md);
+      --max:       1200px;
+      --font:      'Be Vietnam Pro', -apple-system, Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 48px; }
+
+    .bw-img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      filter: grayscale(100%) contrast(1.05) brightness(0.92);
+    }
+    .bw-img-wrap { overflow: hidden; position: relative; }
+    .bw-img-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(0,0,0,0.18); pointer-events: none;
+    }
+
+    .label {
+      font-size: 11px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--yellow);
+      margin-bottom: 16px; display: block;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font); font-weight: 400; font-size: 14px;
+      line-height: 24px; border-radius: var(--radius-xxs);
+      cursor: pointer; transition: opacity 0.15s;
+      text-decoration: none; border: none; padding: 12px 16px;
+      letter-spacing: 0; white-space: nowrap;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: var(--main-brand); color: var(--main-black); }
+    .btn-primary-lg { background: var(--main-brand); color: var(--main-black); font-size: 14px; padding: 16px 20px; }
+    .btn-ghost { background: transparent; color: var(--white); border: 1px solid var(--border-lt); }
+    .btn-outline-sm {
+      background: transparent; color: var(--concrete);
+      border: 1px solid var(--border-lt); border-radius: var(--radius-xxs);
+      font-family: var(--font); font-size: 13px; font-weight: 400;
+      padding: 8px 16px; cursor: pointer; transition: all 0.15s;
+    }
+    .btn-outline-sm:hover { border-color: var(--white); color: var(--white); }
+
+    /* ── NAV ── */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* ── SECTION SHARED ── */
+    .s-tag {
+      position: absolute; top: 12px; left: 12px;
+      font-size: 9px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--border-lt);
+      pointer-events: none; z-index: 10;
+    }
+    section { position: relative; }
+
+    /* ── MASTHEAD / HERO ── */
+    #masthead {
+      padding: 140px 0 80px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    #masthead::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(255,245,62,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .masthead-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .masthead-copy {}
+    .masthead-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--yellow); margin-bottom: 20px;
+      display: block;
+    }
+    .masthead-h1 {
+      font-size: clamp(48px, 6vw, 76px); font-weight: 800;
+      line-height: 0.95; letter-spacing: -2.5px; margin-bottom: 24px;
+    }
+    .masthead-h1 em { font-style: normal; color: var(--yellow); }
+    .masthead-sub {
+      font-size: 17px; font-weight: 300; color: var(--concrete);
+      line-height: 1.7; margin-bottom: 36px; max-width: 440px;
+    }
+    .masthead-meta {
+      display: flex; gap: 20px; align-items: center;
+    }
+    .masthead-issue {
+      font-size: 12px; color: var(--muted-lt); letter-spacing: 1px;
+    }
+
+    /* Featured article (right column of masthead) */
+    .masthead-feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .masthead-feature:hover { border-color: var(--border-lt); }
+    .masthead-feature-img {
+      height: 280px;
+    }
+    .masthead-feature-body { padding: 28px; }
+    .feat-category {
+      font-size: 10px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; display: block;
+    }
+    .feat-title {
+      font-size: 22px; font-weight: 700; line-height: 1.25;
+      letter-spacing: -0.3px; margin-bottom: 10px;
+    }
+    .feat-excerpt {
+      font-size: 14px; font-weight: 300; color: var(--concrete);
+      line-height: 1.7; margin-bottom: 20px;
+    }
+    .feat-byline {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .feat-avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--border-lt); flex-shrink: 0;
+      /* Placeholder: replace with actual author photo */
+    }
+    .feat-author { font-size: 12px; color: var(--muted); }
+    .feat-author strong { color: var(--white); font-weight: 500; }
+    .feat-readtime { font-size: 12px; color: var(--muted-lt); margin-left: auto; }
+
+    /* ── CATEGORY FILTER BAR ── */
+    #category-bar {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 64px; z-index: 100;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+    }
+    .cat-inner {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .cat-chip {
+      background: transparent; border: 1px solid var(--border-lt);
+      color: var(--concrete); border-radius: 100px;
+      padding: 7px 18px; font-family: var(--font); font-size: 13px;
+      font-weight: 400; cursor: pointer; transition: all 0.15s;
+    }
+    .cat-chip:hover { border-color: var(--yellow); color: var(--yellow); }
+    .cat-chip.on { border-color: var(--yellow); color: var(--yellow); }
+    .cat-count {
+      margin-left: auto; font-size: 13px; color: var(--muted-lt);
+      white-space: nowrap;
+    }
+
+    /* ── MAIN ARTICLE GRID ── */
+    #articles {
+      padding: 72px 0;
+    }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Article card */
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .article-card:hover { border-color: var(--border-lt); }
+    .article-card-img { height: 200px; }
+    .article-card-body { padding: 22px 22px 28px; flex: 1; display: flex; flex-direction: column; }
+    .article-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: var(--radius-xxs);
+      margin-bottom: 14px;
+    }
+    .tag-tips { background: rgba(255,245,0,0.1); color: var(--yellow); }
+    .tag-artist { background: rgba(255,89,89,0.1); color: #FF5959; }
+    .tag-genre { background: rgba(13,82,214,0.15); color: #5B8DEF; }
+    .tag-tutorial { background: rgba(0,200,140,0.1); color: #00C88C; }
+    .tag-gear { background: rgba(168,168,168,0.1); color: var(--concrete); }
+    .tag-releases { background: rgba(255,165,0,0.1); color: #FFA500; }
+
+    .article-title {
+      font-size: 17px; font-weight: 700; line-height: 1.3;
+      letter-spacing: -0.2px; margin-bottom: 10px; flex: 1;
+    }
+    .article-excerpt {
+      font-size: 13px; font-weight: 300; color: var(--concrete);
+      line-height: 1.65; margin-bottom: 18px;
+    }
+    .article-
+    .article-author { font-size: 12px; color: var(--muted); }
+    .article-meta { font-size: 12px; color: var(--muted-lt); }
+
+    /* Wide article card (spans 2 columns) */
+    .article-card-wide {
+      grid-column: span 2;
+      flex-direction: row;
+    }
+    .article-card-wide .article-card-img {
+      width: 40%; min-width: 40%; height: auto; min-height: 240px;
+    }
+    .article-card-wide .article-card-body { justify-content: center; }
+    .article-card-wide .article-title { font-size: 22px; }
+
+    /* Load more */
+    .load-more {
+      text-align: center; margin-top: 56px;
+    }
+
+    /* ── SERIES SECTION ── */
+    #series {
+      padding: 88px 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .series-head { margin-bottom: 48px; }
+    .series-h2 {
+      font-size: 36px; font-weight: 800; letter-spacing: -1px;
+      line-height: 1.1; margin-top: 12px; margin-bottom: 10px;
+    }
+    .series-sub { font-size: 15px; font-weight: 300; color: var(--concrete); max-width: 480px; line-height: 1.65; }
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .series-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .series-card:hover { border-color: var(--border-lt); }
+    .series-card-img { height: 160px; }
+    .series-card-body { padding: 20px; }
+    .series-ep {
+      font-size: 10px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--yellow); margin-bottom: 8px; display: block;
+    }
+    .series-title {
+      font-size: 15px; font-weight: 700; line-height: 1.3; margin-bottom: 6px;
+    }
+    .series-desc {
+      font-size: 12px; font-weight: 300; color: var(--concrete); line-height: 1.6;
+    }
+    .series-card-play {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 14px;
+      font-size: 12px; color: var(--yellow); cursor: pointer;
+    }
+
+    /* ── TUTORIAL STRIP ── */
+    #tutorials {
+      padding: 88px 0;
+    }
+    .tutorials-head { text-align: center; margin-bottom: 56px; }
+    .tutorials-h2 { font-size: 36px; font-weight: 800; letter-spacing: -1px; }
+    .tutorials-sub { font-size: 15px; font-weight: 300; color: var(--concrete); margin-top: 12px; }
+    .tutorials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .tutorial-item {
+      background: var(--surface);
+      padding: 32px 36px;
+      display: flex; align-items: flex-start; gap: 20px;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .tutorial-item:hover { background: var(--surface2); }
+    .tutorial-num {
+      font-size: 32px; font-weight: 800; color: var(--border-lt);
+      letter-spacing: -1px; line-height: 1; flex-shrink: 0;
+      width: 48px;
+    }
+    .tutorial-body {}
+    .tutorial-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--yellow); margin-bottom: 8px; display: block;
+    }
+    .tutorial-title {
+      font-size: 16px; font-weight: 700; line-height: 1.3; margin-bottom: 8px;
+    }
+    .tutorial-desc {
+      font-size: 13px; font-weight: 300; color: var(--concrete); line-height: 1.6;
+    }
+    .tutorial-meta { font-size: 12px; color: var(--muted-lt); margin-top: 12px; }
+
+    /* ── NEWSLETTER ── */
+    #newsletter {
+      padding: 96px 0;
+      background: var(--main-black);
+      border-top: 1px solid var(--border);
+    }
+    .newsletter-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .newsletter-copy .section-h2 {
+      font-size: clamp(32px, 4vw, 48px); font-weight: 800;
+      letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 16px;
+    }
+    .newsletter-copy p {
+      font-size: 15px; font-weight: 300; color: var(--concrete);
+      line-height: 1.7; max-width: 400px;
+    }
+    .newsletter-perks {
+      margin-top: 24px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .newsletter-perk {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: var(--concrete);
+    }
+    .newsletter-perk::before {
+      content: '✓'; color: var(--main-brand); font-weight: 700; flex-shrink: 0;
+    }
+    .newsletter-form {}
+    .newsletter-form-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 36px;
+    }
+    .newsletter-form h3 {
+      font-size: 18px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.2px;
+    }
+    .newsletter-form p {
+      font-size: 13px; color: var(--concrete); margin-bottom: 24px; line-height: 1.6;
+    }
+    .form-row { display: flex; gap: 0; margin-bottom: 12px; }
+    .form-input {
+      flex: 1; background: var(--bg); border: 1px solid var(--border-lt);
+      border-right: none; color: var(--white); font-family: var(--font);
+      font-size: 14px; padding: 14px 18px; outline: none;
+      border-radius: var(--radius-xxs) 0 0 var(--radius-xxs);
+    }
+    .form-input::placeholder { color: var(--muted-lt); }
+    .form-submit {
+      background: var(--main-brand); color: var(--main-black);
+      font-family: var(--font); font-weight: 400; font-size: 14px;
+      border: none; padding: 14px 20px; cursor: pointer;
+      border-radius: 0 var(--radius-xxs) var(--radius-xxs) 0; white-space: nowrap;
+    }
+    .form-fine { font-size: 11px; color: var(--muted-lt); line-height: 1.5; }
+
+    /* ── FOOTER ── */
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+  <a href="lc8-landing-wireframe.html" class="nav-logo"><img src="lc8-logo.svg" alt="Loopcloud" style="height:20px;width:auto;display:block"></a>
+  <ul class="nav-links">
+    <li><a href="#" style="pointer-events:none;opacity:.4;cursor:default">Sounds</a></li>
+    <li><a href="lc8-features-wireframe.html">Features</a></li>
+    <li><a href="lc8-plugin-suite-wireframe.html">Plugin Suite</a></li>
+    <li><a href="lc8-subscription-wireframe.html">Pricing</a></li>
+    <li><a href="lc8-magazine-wireframe.html" class="active">Magazine</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="lc8-login-wireframe.html" style="text-decoration:none"><button class="nav-login">Log in</button></a>
+    <a href="lc8-download-wireframe.html" class="nav-cta">Download</a>
+  </div>
+</nav>
+
+  <!-- ── MASTHEAD ── -->
+  <section id="masthead">
+    <span class="s-tag">S1 · Masthead</span>
+    <div class="container">
+      <div class="masthead-inner">
+
+        <div class="masthead-copy">
+          <span class="masthead-eyebrow">Loopcloud Magazine</span>
+          <h1 class="masthead-h1">Where <em>producers</em><br>get better.</h1>
+          <p class="masthead-sub">Production tips, artist interviews, genre deep dives, and gear breakdowns — written for people who actually make music, not just talk about it.</p>
+          <div class="masthead-meta">
+            <button class="btn btn-primary-lg">Read latest issue</button>
+            <span class="masthead-issue">Published weekly &nbsp;·&nbsp; Free to read</span>
+          </div>
+        </div>
+
+        <!-- Featured article card -->
+        <div class="masthead-feature">
+          <div class="masthead-feature-img bw-img-wrap">
+            <img class="bw-img" src="https://picsum.photos/seed/mag-hero/700/280?grayscale" alt="Featured article" />
+          </div>
+          <div class="masthead-feature-body">
+            <span class="feat-category">Artist Spotlight</span>
+            <h2 class="feat-title">How Four Tet builds a track from a single sample</h2>
+            <p class="feat-excerpt">We sat down with one of electronic music's most distinctive voices to learn how he finds inspiration — and why he still prefers vinyl to algorithms.</p>
+            <div class="feat-byline">
+              <div class="feat-avatar"></div>
+              <span class="feat-author"><strong>James Rutherford</strong> · Senior Editor</span>
+              <span class="feat-readtime">8 min read</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CATEGORY BAR ── -->
+  <section id="category-bar">
+    <div class="container">
+      <div class="cat-inner">
+        <span class="cat-chip on">All</span>
+        <span class="cat-chip">Production Tips</span>
+        <span class="cat-chip">Artist Interviews</span>
+        <span class="cat-chip">Genre Deep Dives</span>
+        <span class="cat-chip">Tutorials</span>
+        <span class="cat-chip">New Releases</span>
+        <span class="cat-chip">Gear &amp; Plugins</span>
+        <span class="cat-count">148 articles</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ARTICLE GRID ── -->
+  <section id="articles">
+    <span class="s-tag">S2 · Article Grid</span>
+    <div class="container">
+      <div class="articles-grid">
+
+        <!-- Wide feature: row 1, spans 2 cols -->
+        <div class="article-card article-card-wide">
+          <div class="article-card-img bw-img-wrap" style="width:40%;min-width:40%;height:auto;min-height:240px">
+            <img class="bw-img" src="https://picsum.photos/seed/mag-1/600/400?grayscale" alt="Article image" />
+          </div>
+          <div class="article-card-body" style="justify-content:center">
+            <span class="article-tag tag-tips">Production Tips</span>
+            <h3 class="article-title" style="font-size:22px">The 5 things every producer does wrong with kick drums — and how to fix them</h3>
+            <p class="article-excerpt">Most mix problems start at the bottom. We break down the most common low-end mistakes and give you the tools to solve them before your next bounce.</p>
+            <div class="article-footer">
+              <span class="article-author">By Sara Müller</span>
+              <span class="article-meta">6 min read &nbsp;·&nbsp; 3 days ago</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regular card -->
+        <div class="article-card">
+          <div class="article-card-img bw-img-wrap">
+            <img class="bw-img" src="https://picsum.photos/seed/mag-2/500/200?grayscale" alt="Article image" />
+          </div>
+          <div class="article-card-body">
+            <span class="article-tag tag-genre">Genre Deep Dive</span>
+            <h3 class="article-title">What actually makes a track sound like UK Garage in 2026</h3>
+            <p class="article-excerpt">From 2-step swings to vocal chops — the production DNA of a genre that refuses to stand still.</p>
+            <div class="article-footer">
+              <span class="article-author">By Tom Clarke</span>
+              <span class="article-meta">5 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regular card -->
+        <div class="article-card">
+          <div class="article-card-img bw-img-wrap">
+            <img class="bw-img" src="https://picsum.photos/seed/mag-3/500/200?grayscale" alt="Article image" />
+          </div>
+          <div class="article-card-body">
+            <span class="article-tag tag-artist">Artist Interview</span>
+            <h3 class="article-title">Peggy Gou: "I never start a session without a sample I've never heard before"</h3>
+            <p class="article-excerpt">The Berlin-based DJ and producer on creative blocks, sample hunting, and why limitations make better music.</p>
+            <div class="article-footer">
+              <span class="article-author">By Naomi Chen</span>
+              <span class="article-meta">10 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regular card -->
+        <div class="article-card">
+          <div class="article-card-img bw-img-wrap">
+            <img class="bw-img" src="https://picsum.photos/seed/mag-4/500/200?grayscale" alt="Article image" />
+          </div>
+          <div class="article-card-body">
+            <span class="article-tag tag-tutorial">Tutorial</span>
+            <h3 class="article-title">Using Loopcloud DRUM's kit generator as a creative tool, not a shortcut</h3>
+            <p class="article-excerpt">Lock and regenerate — the technique that turns random kits into something that actually sounds like you.</p>
+            <div class="article-footer">
+              <span class="article-author">By Loopcloud Editors</span>
+              <span class="article-meta">7 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regular card -->
+        <div class="article-card">
+          <div class="article-card-img bw-img-wrap">
+            <img class="bw-img" src="https://picsum.photos/seed/mag-5/500/200?grayscale" alt="Article image" />
+          </div>
+          <div class="article-card-body">
+            <span class="article-tag tag-releases">New Releases</span>
+            <h3 class="article-title">This week's best sample packs — curated by our editorial team</h3>
+            <p class="article-excerpt">Afrobeats construction kits, dark ambient atmospheres, and a trap pack that's already all over SoundCloud. Our picks this week.</p>
+            <div class="article-footer">
+              <span class="article-author">Editorial</span>
+              <span class="article-meta">4 min read &nbsp;·&nbsp; Weekly</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regular card -->
+        <div class="article-card">
+          <div class="article-card-img bw-img-wrap">
+            <img class="bw-img" src="https://picsum.photos/seed/mag-6/500/200?grayscale" alt="Article image" />
+          </div>
+          <div class="article-card-body">
+            <span class="article-tag tag-gear">Gear &amp; Plugins</span>
+            <h3 class="article-title">The best free plugins in 2026 that actually get used in professional sessions</h3>
+            <p class="article-excerpt">We asked 20 working producers what free tools they still reach for. The answers were surprising.</p>
+            <div class="article-footer">
+              <span class="article-author">By Marcus Webb</span>
+              <span class="article-meta">9 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wide feature: row 3 -->
+        <div class="article-card article-card-wide">
+          <div class="article-card-img bw-img-wrap" style="width:40%;min-width:40%;height:auto;min-height:240px">
+            <img class="bw-img" src="https://picsum.photos/seed/mag-7/600/400?grayscale" alt="Article image" />
+          </div>
+          <div class="article-card-body" style="justify-content:center">
+            <span class="article-tag tag-genre">Genre Deep Dive</span>
+            <h3 class="article-title" style="font-size:20px">Amapiano in 2026: why the log drum is the most important sound in music right now</h3>
+            <p class="article-excerpt">From Johannesburg to London's clubs — how Amapiano became a global force, and what it means for sample culture. We trace the genre's DNA and talk to the producers driving it forward.</p>
+            <div class="article-footer">
+              <span class="article-author">By Sipho Ndlovu</span>
+              <span class="article-meta">12 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regular card -->
+        <div class="article-card">
+          <div class="article-card-img bw-img-wrap">
+            <img class="bw-img" src="https://picsum.photos/seed/mag-8/500/200?grayscale" alt="Article image" />
+          </div>
+          <div class="article-card-body">
+            <span class="article-tag tag-tips">Production Tips</span>
+            <h3 class="article-title">Why your chord progressions sound boring — and 4 ways to fix that today</h3>
+            <p class="article-excerpt">It's not about theory. It's about tension, timing, and knowing when to break the rules on purpose.</p>
+            <div class="article-footer">
+              <span class="article-author">By Sara Müller</span>
+              <span class="article-meta">6 min read</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="load-more">
+        <button class="btn btn-ghost">Load more articles</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VIDEO SERIES ── -->
+  <section id="series">
+    <span class="s-tag">S3 · Video Series</span>
+    <div class="container">
+      <div class="series-head">
+        <span class="label">Exclusive series</span>
+        <h2 class="series-h2">In the Studio With.</h2>
+        <p class="series-sub">Unscripted sessions with working producers — showing their actual workflow, not a highlight reel. New episode every two weeks.</p>
+      </div>
+      <div class="series-grid">
+
+        <div class="series-card">
+          <div class="series-card-img bw-img-wrap">
+            <img class="bw-img" src="https://picsum.photos/seed/ser-1/400/160?grayscale" alt="Series episode" />
+          </div>
+          <div class="series-card-body">
+            <span class="series-ep">Episode 12</span>
+            <h3 class="series-title">Interplanetary Criminal</h3>
+            <p class="series-desc">How the UK Bass producer builds tracks entirely from field recordings and found sounds.</p>
+            <div class="series-card-play">
+              <span>▶</span> Watch · 22 min
+            </div>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <div class="series-card-img bw-img-wrap">
+            <img class="bw-img" src="https://picsum.photos/seed/ser-2/400/160?grayscale" alt="Series episode" />
+          </div>
+          <div class="series-card-body">
+            <span class="series-ep">Episode 11</span>
+            <h3 class="series-title">Shackleton</h3>
+            <p class="series-desc">Dub techno's most mysterious figure opens up his workflow for the first time — almost.</p>
+            <div class="series-card-play">
+              <span>▶</span> Watch · 18 min
+            </div>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <div class="series-card-img bw-img-wrap">
+            <img class="bw-img" src="https://picsum.photos/seed/ser-3/400/160?grayscale" alt="Series episode" />
+          </div>
+          <div class="series-card-body">
+            <span class="series-ep">Episode 10</span>
+            <h3 class="series-title">Loraine James</h3>
+            <p class="series-desc">How the Hyperdub producer uses sample chaos as composition — and why she never cleans up her session.</p>
+            <div class="series-card-play">
+              <span>▶</span> Watch · 26 min
+            </div>
+          </div>
+        </div>
+
+        <div class="series-card">
+          <div class="series-card-img bw-img-wrap">
+            <img class="bw-img" src="https://picsum.photos/seed/ser-4/400/160?grayscale" alt="Series episode" />
+          </div>
+          <div class="series-card-body">
+            <span class="series-ep">Episode 09</span>
+            <h3 class="series-title">Sherelle</h3>
+            <p class="series-desc">Speed, tension, and joy — the Fabric resident on what makes a 160BPM track feel like a slow burn.</p>
+            <div class="series-card-play">
+              <span>▶</span> Watch · 20 min
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TUTORIALS ── -->
+  <section id="tutorials">
+    <span class="s-tag">S4 · Tutorials</span>
+    <div class="container">
+      <div class="tutorials-head">
+        <span class="label">Step by step</span>
+        <h2 class="tutorials-h2">Learn something today.</h2>
+        <p class="tutorials-sub">Practical tutorials written by producers, for producers. No filler.</p>
+      </div>
+      <div class="tutorials-grid">
+
+        <div class="tutorial-item">
+          <div class="tutorial-num">01</div>
+          <div class="tutorial-body">
+            <span class="tutorial-tag">Beginner</span>
+            <h3 class="tutorial-title">How to build your first track using only Loopcloud samples</h3>
+            <p class="tutorial-desc">A complete beginner's guide to going from blank session to finished demo — using only what's already in Loopcloud.</p>
+            <p class="tutorial-meta">15 min read &nbsp;·&nbsp; Includes project file</p>
+          </div>
+        </div>
+
+        <div class="tutorial-item">
+          <div class="tutorial-num">02</div>
+          <div class="tutorial-body">
+            <span class="tutorial-tag">Intermediate</span>
+            <h3 class="tutorial-title">Sidechain compression using Loopcloud DRUM's multi-output</h3>
+            <p class="tutorial-desc">Route kick drum to a separate channel, then use it to pump your bass and pad — the classic house technique, step by step.</p>
+            <p class="tutorial-meta">10 min read &nbsp;·&nbsp; Ableton + Logic covered</p>
+          </div>
+        </div>
+
+        <div class="tutorial-item">
+          <div class="tutorial-num">03</div>
+          <div class="tutorial-body">
+            <span class="tutorial-tag">Advanced</span>
+            <h3 class="tutorial-title">Building a custom sample library inside Loopcloud with auto-tagging</h3>
+            <p class="tutorial-desc">Import your existing hard drives, let Loopcloud scan and tag everything, then set up smart folders by key and BPM.</p>
+            <p class="tutorial-meta">12 min read &nbsp;·&nbsp; Desktop app required</p>
+          </div>
+        </div>
+
+        <div class="tutorial-item">
+          <div class="tutorial-num">04</div>
+          <div class="tutorial-body">
+            <span class="tutorial-tag">Intermediate</span>
+            <h3 class="tutorial-title">Writing melodies with Loopcloud PLAY's macro controls in Ableton</h3>
+            <p class="tutorial-desc">Map PLAY's macros to MIDI controllers, automate them in the arrangement view, and turn static patches into evolving instruments.</p>
+            <p class="tutorial-meta">8 min read &nbsp;·&nbsp; Ableton only</p>
+          </div>
+        </div>
+
+        <div class="tutorial-item">
+          <div class="tutorial-num">05</div>
+          <div class="tutorial-body">
+            <span class="tutorial-tag">Beginner</span>
+            <h3 class="tutorial-title">Finding samples by BPM and key — the Loopcloud filter system explained</h3>
+            <p class="tutorial-desc">Stop scrolling. Learn the filter system that surfaces the right sound in under 30 seconds, every time.</p>
+            <p class="tutorial-meta">5 min read &nbsp;·&nbsp; Free to read</p>
+          </div>
+        </div>
+
+        <div class="tutorial-item">
+          <div class="tutorial-num">06</div>
+          <div class="tutorial-body">
+            <span class="tutorial-tag">Advanced</span>
+            <h3 class="tutorial-title">Resampling in context: using Loopcloud's preview mode as a composition tool</h3>
+            <p class="tutorial-desc">How to use Loopcloud's DAW-sync preview as a live instrument — auditioning and recording samples in real time without downloading anything.</p>
+            <p class="tutorial-meta">11 min read &nbsp;·&nbsp; All DAWs</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NEWSLETTER ── -->
+  <section id="newsletter">
+    <span class="s-tag">S5 · Newsletter</span>
+    <div class="container">
+      <div class="newsletter-inner">
+
+        <div class="newsletter-copy">
+          <span class="label">Stay in the loop</span>
+          <h2 class="section-h2" style="font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.05;margin-bottom:16px">
+            The best of Loopcloud Magazine, weekly.
+          </h2>
+          <p>One email every Thursday. The week's best article, one tutorial, and the new sample packs worth downloading. No noise.</p>
+          <div class="newsletter-perks">
+            <div class="newsletter-perk">Weekly editorial picks — curated, not algorithmic</div>
+            <div class="newsletter-perk">Early access to new tutorials and series episodes</div>
+            <div class="newsletter-perk">Subscriber-only free sample drops, monthly</div>
+          </div>
+        </div>
+
+        <div class="newsletter-form">
+          <div class="newsletter-form-inner">
+            <h3>Get the Thursday drop.</h3>
+            <p>Join 120,000+ producers who read Loopcloud Magazine every week.</p>
+            <div class="form-row">
+              <input class="form-input" type="email" placeholder="Your email address" />
+              <button class="form-submit">Subscribe</button>
+            </div>
+            <p class="form-fine">No spam. Unsubscribe anytime. We never share your email with third parties.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="lc8-landing-wireframe.html" style="text-decoration:none"><img src="lc8-logo.svg" alt="Loopcloud" style="height:16px;width:auto;display:block"></a>
+      <p class="footer-tagline">The sample platform for music producers.</p>
+    </div>
+    <div class="footer-newsletter">
+      <p class="footer-newsletter-label">Newsletter</p>
+      <p class="footer-newsletter-desc">New sounds, tutorials, and product updates — straight to your inbox.</p>
+      <div class="footer-newsletter-row">
+        <input class="footer-newsletter-input" type="email" placeholder="your@email.com">
+        <button class="footer-newsletter-btn">Subscribe</button>
+      </div>
+    </div>
+    <div class="footer-links-col">
+      <p class="footer-links-heading">Product</p>
+      <a href="lc8-features-wireframe.html">Features</a>
+      <a href="lc8-plugin-suite-wireframe.html">Plugin Suite</a>
+      <a href="lc8-subscription-wireframe.html">Pricing</a>
+      <a href="lc8-download-wireframe.html">Download</a>
+    </div>
+    <div class="footer-links-col">
+      <p class="footer-links-heading">Explore</p>
+      <a href="lc8-magazine-wireframe.html">Magazine</a>
+      <a href="#" style="pointer-events:none;opacity:.4">Sounds</a>
+      <a href="#">Tutorials</a>
+      <a href="#">Support</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Loopmasters Ltd. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Settings</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

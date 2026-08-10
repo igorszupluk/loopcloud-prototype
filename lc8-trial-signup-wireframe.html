@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Create Account — Loopcloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.checkout-nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between}
+.signup-wrap{min-height:calc(100vh - 100px);display:flex;align-items:flex-start;justify-content:center;padding:56px 24px 80px}
+.signup-card{width:100%;max-width:520px}
+.plan-bar{background:rgba(255,245,0,.05);border:1px solid rgba(255,245,0,.15);border-radius:4px;padding:12px 18px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between}
+.plan-bar-info{font-size:13px;color:var(--white);font-weight:500}
+.plan-bar-price{font-size:13px;color:var(--brand);font-weight:700}
+.plan-bar-change{font-size:11px;color:var(--muted);text-decoration:none}
+.plan-bar-change:hover{color:var(--white)}
+.signup-h1{font-size:28px;font-weight:800;letter-spacing:-1px;margin-bottom:6px}
+.signup-sub{font-size:13px;font-weight:300;color:var(--muted);margin-bottom:28px;line-height:1.6}
+.signup-sub strong{color:var(--brand)}
+
+.form-section-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:block}
+.google-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--surface2);border:1px solid var(--border-lt);color:var(--white);font-family:var(--font);font-size:14px;font-weight:500;padding:12px 16px;border-radius:2px;cursor:pointer;transition:border-color .15s;margin-bottom:0}
+.google-btn:hover{border-color:var(--concrete)}
+.google-icon{width:18px;height:18px;flex-shrink:0;background:linear-gradient(135deg,#ea4335 25%,#fbbc05 25% 50%,#34a853 50% 75%,#4285f4 75%);border-radius:50%}
+.divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--muted);font-size:12px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.name-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.field-wrap{margin-bottom:10px}
+.submit-btn{width:100%;background:var(--brand);color:var(--black);font-family:var(--font);font-size:15px;font-weight:800;padding:15px;border:none;border-radius:2px;cursor:pointer;margin-top:6px;letter-spacing:.01em;transition:opacity .15s}
+.submit-btn:hover{opacity:.9}
+.terms{font-size:11px;color:var(--muted);line-height:1.7;text-align:center;margin-top:12px}
+.terms a{color:var(--concrete);text-decoration:underline}
+.login-nudge{display:block;text-align:center;margin-top:16px;padding:14px;border:1px solid var(--border);border-radius:2px;font-size:13px;color:var(--muted);text-decoration:none;transition:border-color .15s}
+.login-nudge:hover{border-color:var(--concrete);color:var(--white)}
+.login-nudge strong{color:var(--white)}
+.trust-row{display:flex;justify-content:center;gap:20px;margin-top:24px;flex-wrap:wrap}
+.trust-item{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.trust-item::before{content:'✓';color:var(--brand);font-weight:700;font-size:10px}
+</style>
+</head><body>
+
+<nav class="checkout-nav">
+  <a href="lc8-landing-wireframe.html" class="nav-logo"><img src="lc8-logo.svg" alt="Loopcloud" style="height:18px;width:auto;display:block"></a>
+  <ul class="nav-links">
+    <li><a href="lc8-features-wireframe.html">Features</a></li>
+    <li><a href="lc8-subscription-wireframe.html">Pricing</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="lc8-login-wireframe.html" style="font-size:12px;color:var(--muted);text-decoration:none">Log in</a>
+  </div>
+</nav>
+
+<div class="step-bar">
+  <div class="step-item active"><div class="step-num">1</div> Account</div>
+  <span class="step-arrow" style="padding:0 4px">›</span>
+  <div class="step-item"><div class="step-num">2</div> Payment</div>
+  <span class="step-arrow" style="padding:0 4px">›</span>
+  <div class="step-item"><div class="step-num">3</div> Confirmed</div>
+</div>
+
+<div class="signup-wrap">
+  <div class="signup-card">
+
+    <div class="plan-bar">
+      <span class="plan-bar-info">Studio Plan · 14-day trial</span>
+      <span class="plan-bar-price">£11.99/mo after trial</span>
+      <a href="lc8-subscription-wireframe.html" class="plan-bar-change">Change →</a>
+    </div>
+
+    <h1 class="signup-h1">Create your account</h1>
+    <p class="signup-sub">14-day free trial · full access · <strong>cancel any time</strong></p>
+
+    <span class="form-section-label">Create your account</span>
+    <button class="google-btn">
+      <div class="google-icon"></div>
+      Continue with Google
+    </button>
+
+    <div class="divider">or sign up with email</div>
+
+    <div class="name-row">
+      <div class="field-wrap"><input class="form-input" type="text" placeholder="First name" autocomplete="given-name"></div>
+      <div class="field-wrap"><input class="form-input" type="text" placeholder="Last name" autocomplete="family-name"></div>
+    </div>
+    <div class="field-wrap"><input class="form-input" type="email" placeholder="Email address" autocomplete="email"></div>
+    <div class="field-wrap"><input class="form-input" type="password" placeholder="Create password (8+ characters)" autocomplete="new-password"></div>
+
+    <button class="submit-btn" onclick="window.location='lc8-checkout.html'">Continue to payment →</button>
+
+    <p class="terms">By creating an account you agree to Loopcloud's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+
+    <a href="#" class="login-nudge">Already have an account? <strong>Log in →</strong></a>
+
+    <div class="trust-row">
+      <span class="trust-item">No card required yet</span>
+      <span class="trust-item">Cancel any time</span>
+      <span class="trust-item">Keep your downloads</span>
+    </div>
+
+  </div>
+</div>
+
+</body></html>

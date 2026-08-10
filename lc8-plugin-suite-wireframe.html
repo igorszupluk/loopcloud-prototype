@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loopcloud 8 — Plugin Suite (Wireframe)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --main-brand:  #fff500;
+      --main-black:  #000000;
+      --main-white:  #ffffff;
+      --main-stone:  #D6D1CC;
+      --radius-xxs:  2px;
+      --radius-xs:   4px;
+      --radius-sm:   6px;
+      --radius-md:   8px;
+      --yellow:    var(--main-brand);
+      --black:     var(--main-black);
+      --white:     var(--main-white);
+      --concrete:  #A8A8A8;
+      --bg:        #0a0a0a;
+      --surface:   #111111;
+      --surface2:  #161616;
+      --border:    #222222;
+      --border-lt: #2e2e2e;
+      --text:      #FFFFFF;
+      --muted:     #888888;
+      --muted-lt:  #555555;
+      --radius-lg: var(--radius-md);
+      --max:       1200px;
+      --font:      'Be Vietnam Pro', -apple-system, Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 48px; }
+
+    .bw-img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      filter: grayscale(100%) contrast(1.05) brightness(0.92);
+    }
+    .bw-img-wrap { overflow: hidden; position: relative; }
+    .bw-img-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(0,0,0,0.18); pointer-events: none;
+    }
+
+    .label {
+      font-size: 11px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--yellow);
+      margin-bottom: 16px; display: block;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font); font-weight: 400; font-size: 14px;
+      line-height: 24px; border-radius: var(--radius-xxs);
+      cursor: pointer; transition: opacity 0.15s;
+      text-decoration: none; border: none; padding: 12px 16px;
+      letter-spacing: 0; white-space: nowrap;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: var(--main-brand); color: var(--main-black); }
+    .btn-primary-lg { background: var(--main-brand); color: var(--main-black); font-size: 14px; padding: 16px 20px; }
+    .btn-ghost-lg { background: transparent; color: var(--white); border: 1px solid var(--border-lt); padding: 16px 20px; }
+    .btn-alt-feature {
+      margin-top: 28px; display: inline-flex; align-items: center; gap: 6px;
+      background: transparent; color: var(--main-brand);
+      border: 1px solid var(--main-brand); border-radius: var(--radius-xxs);
+      font-family: var(--font); font-size: 14px; font-weight: 400;
+      padding: 12px 20px; cursor: pointer; letter-spacing: 0.01em;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-alt-feature:hover { background: var(--main-brand); color: var(--main-black); }
+
+    /* ── NAV ── */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    /* ── SECTION SHARED ── */
+    .section-head { text-align: center; margin-bottom: 72px; }
+    .section-h2 {
+      font-size: clamp(36px, 4.5vw, 56px); font-weight: 800;
+      letter-spacing: -1.5px; line-height: 1.0;
+    }
+    .s-tag {
+      position: absolute; top: 12px; left: 12px;
+      font-size: 9px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--border-lt);
+      pointer-events: none; z-index: 10;
+    }
+    section { position: relative; }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 160px 48px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 20%, rgba(255,245,62,0.06) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(13,82,214,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-kicker {
+      font-size: 12px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--yellow); margin-bottom: 24px;
+    }
+    .hero-h1 {
+      font-size: clamp(52px, 7vw, 88px); font-weight: 800;
+      line-height: 0.95; letter-spacing: -3px; margin-bottom: 24px;
+    }
+    .hero-h1 em { font-style: normal; color: var(--yellow); }
+    .hero-sub {
+      font-size: 18px; font-weight: 300; color: var(--concrete);
+      max-width: 560px; margin: 0 auto 44px; line-height: 1.65;
+    }
+    .hero-actions { display: flex; gap: 14px; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .hero-fine { font-size: 12px; color: var(--muted-lt); margin-bottom: 72px; }
+
+    /* plugin hero image — wide laptop screenshot */
+    .plugin-hero-img {
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+      height: 520px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-lt);
+      overflow: hidden;
+      position: relative;
+    }
+    .plugin-hero-img .ph-label {
+      position: absolute; inset: 0; display: flex;
+      flex-direction: column; align-items: center; justify-content: center;
+      background: var(--surface2); color: var(--muted);
+      font-size: 13px; font-style: italic; gap: 12px; z-index: 3;
+    }
+    .plugin-hero-img .ph-label strong {
+      font-style: normal; font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--border-lt);
+    }
+
+    /* ── INCLUDED BADGE STRIP ── */
+    #included-strip {
+      padding: 24px 0;
+      background: rgba(255,245,0,0.04);
+      border-top: 1px solid rgba(255,245,0,0.12);
+      border-bottom: 1px solid rgba(255,245,0,0.12);
+    }
+    .included-inner {
+      display: flex; align-items: center; justify-content: center; gap: 48px;
+    }
+    .included-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: var(--concrete);
+    }
+    .included-check {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(255,245,0,0.15); border: 1px solid rgba(255,245,0,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: var(--main-brand); flex-shrink: 0;
+    }
+
+    /* ── PLUGIN SECTIONS (DRUM + PLAY) ── */
+    .plugin-section {
+      padding: 120px 0 0;
+    }
+    .plugin-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .plugin-name-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--surface); border: 1px solid var(--border-lt);
+      border-radius: var(--radius-xxs); padding: 8px 20px;
+      margin-bottom: 28px;
+    }
+    .plugin-name-badge .badge-icon {
+      width: 28px; height: 28px; border-radius: var(--radius-xxs);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 800; letter-spacing: 1px;
+    }
+    .badge-drum { background: var(--main-brand); color: var(--main-black); }
+    .badge-play { background: #0D52D6; color: #fff; }
+    .plugin-name-badge span { font-size: 13px; color: var(--concrete); letter-spacing: 0.5px; }
+
+    .plugin-h2 {
+      font-size: clamp(40px, 5.5vw, 68px); font-weight: 800;
+      letter-spacing: -2px; line-height: 1.0; margin-bottom: 20px;
+    }
+    .plugin-h2 em { font-style: normal; color: var(--yellow); }
+    .plugin-lead {
+      font-size: 18px; font-weight: 300; color: var(--concrete);
+      max-width: 600px; margin: 0 auto 36px; line-height: 1.7;
+    }
+
+    /* Screenshot placeholder */
+    .plugin-screenshot {
+      width: 100%;
+      height: 500px;
+      background: var(--surface);
+      border: 1px solid var(--border-lt);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 16px;
+    }
+    .plugin-screenshot .screenshot-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--border-lt);
+    }
+    .plugin-screenshot .screenshot-desc {
+      font-size: 13px; color: var(--muted); font-style: italic;
+      max-width: 420px; text-align: center; line-height: 1.6;
+    }
+    .video-placeholder {
+      width: 100%;
+      height: 400px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 16px;
+    }
+    .video-placeholder .play-btn {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(255,245,0,0.15); border: 1px solid rgba(255,245,0,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; color: var(--main-brand);
+    }
+    .video-placeholder p {
+      font-size: 13px; color: var(--muted); font-style: italic;
+      max-width: 360px; text-align: center; line-height: 1.6;
+    }
+    .video-placeholder .vid-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--border-lt);
+    }
+
+    /* ── ALT FEATURES within plugin sections ── */
+    .plugin-features {
+      margin-top: 80px;
+    }
+    .plugin-feat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 440px;
+      border-top: 1px solid var(--border);
+    }
+    .plugin-feat-row:last-child { border-bottom: 1px solid var(--border); }
+    .plugin-feat-row-reverse { direction: rtl; }
+    .plugin-feat-row-reverse > * { direction: ltr; }
+    .plugin-feat-media {
+      width: 100%; height: 100%; min-height: 380px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: var(--surface); gap: 16px; padding: 48px;
+    }
+    .plugin-feat-body {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 64px 72px; background: var(--main-black);
+    }
+    .plugin-feat-h3 {
+      font-size: 28px; font-weight: 700; line-height: 1.2;
+      letter-spacing: -0.5px; margin: 12px 0 18px;
+    }
+    .plugin-feat-p {
+      font-size: 15px; font-weight: 300; line-height: 1.75;
+      color: var(--concrete); max-width: 400px;
+    }
+
+    /* ── PLUGIN DIVIDER ── */
+    .plugin-divider {
+      height: 1px; background: linear-gradient(to right, transparent, var(--border-lt), transparent);
+      margin: 0;
+    }
+
+    /* ── FEATURE TILES (small grid below each plugin) ── */
+    .plugin-tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-top: 1px solid var(--border);
+    }
+    .plugin-tile {
+      background: var(--surface);
+      padding: 36px 32px;
+    }
+    .tile-icon {
+      font-size: 22px; margin-bottom: 14px; display: block;
+    }
+    .tile-h4 {
+      font-size: 15px; font-weight: 700; margin-bottom: 8px;
+      letter-spacing: -0.2px;
+    }
+    .tile-p {
+      font-size: 13px; font-weight: 300; color: var(--concrete);
+      line-height: 1.65;
+    }
+
+    /* ── COMPATIBILITY STRIP ── */
+    #compatibility {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .compat-head { text-align: center; margin-bottom: 40px; }
+    .compat-h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+    .compat-sub { font-size: 14px; color: var(--concrete); margin-top: 8px; }
+    .compat-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+    }
+    .compat-item {
+      padding: 24px 16px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .compat-name {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+    .compat-type {
+      font-size: 11px; color: var(--muted-lt); margin-top: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── FINAL CTA ── */
+    #plugin-cta {
+      background: var(--yellow); padding: 112px 48px;width:100%;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    #plugin-cta::before {
+      content: 'PLAY';
+      position: absolute; font-size: 400px; font-weight: 800;
+      color: rgba(0,0,0,0.04); top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none; letter-spacing: -12px; line-height: 1;
+    }
+    .plugin-cta-h2 {
+      font-size: clamp(36px, 5vw, 64px); font-weight: 800;
+      letter-spacing: -2px; line-height: 0.95;
+      color: var(--black); margin-bottom: 18px; position: relative;
+    }
+    .plugin-cta-sub {
+      font-size: 17px; font-weight: 300; color: rgba(0,0,0,0.6);
+      margin-bottom: 40px; position: relative;
+    }
+    .btn-cta-dark {
+      background: var(--main-black); color: var(--main-brand);
+      font-family: var(--font); font-weight: 400; font-size: 14px;
+      line-height: 24px; padding: 16px 32px; border-radius: var(--radius-xxs);
+      border: none; cursor: pointer; position: relative;
+    }
+    .cta-note { font-size: 12px; color: rgba(0,0,0,0.45); margin-top: 18px; position: relative; }
+
+    /* ── FOOTER ── */
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+  <a href="lc8-landing-wireframe.html" class="nav-logo"><img src="lc8-logo.svg" alt="Loopcloud" style="height:20px;width:auto;display:block"></a>
+  <ul class="nav-links">
+    <li><a href="#" style="pointer-events:none;opacity:.4;cursor:default">Sounds</a></li>
+    <li><a href="lc8-features-wireframe.html">Features</a></li>
+    <li><a href="lc8-plugin-suite-wireframe.html" class="active">Plugin Suite</a></li>
+    <li><a href="lc8-subscription-wireframe.html">Pricing</a></li>
+    <li><a href="lc8-magazine-wireframe.html">Magazine</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="lc8-login-wireframe.html" style="text-decoration:none"><button class="nav-login">Log in</button></a>
+    <a href="lc8-download-wireframe.html" class="nav-cta">Download</a>
+  </div>
+</nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <span class="s-tag">S1 · Hero</span>
+    <p class="hero-kicker">Plugin Suite</p>
+    <h1 class="hero-h1">Two plugins.<br><em>Infinite results.</em></h1>
+    <p class="hero-sub">Loopcloud DRUM and Loopcloud PLAY are purpose-built instruments that work alongside your sample library — included free with every subscription.</p>
+    <div class="hero-actions">
+      <a href="lc8-subscription-wireframe.html" style="text-decoration:none"><button class="btn btn-primary-lg">Start free trial</button></a>
+      <button class="btn btn-ghost-lg">Watch demo</button>
+    </div>
+    <p class="hero-fine">Both plugins included with all paid plans &nbsp;·&nbsp; VST3 / AU / AAX</p>
+
+    <!-- SCREENSHOT PLACEHOLDER: Full-width laptop view showing both plugins side by side -->
+    <div class="plugin-hero-img" style="margin-top:56px">
+      <div class="ph-label">
+        <strong>Screenshot placeholder</strong>
+        <span style="max-width:440px;text-align:center;line-height:1.6;">
+          Hero image: both DRUM and PLAY plugins open side by side in a DAW (e.g. Ableton Live). Shows the polished dark UI of both instruments together — ideally on a MacBook screen or in a split-screen DAW session.
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INCLUDED STRIP ── -->
+  <section id="included-strip">
+    <div class="container">
+      <div class="included-inner">
+        <div class="included-item">
+          <div class="included-check">✓</div>
+          <span>Included with all paid plans</span>
+        </div>
+        <div class="included-item">
+          <div class="included-check">✓</div>
+          <span>VST3 / AU / AAX — all major DAWs</span>
+        </div>
+        <div class="included-item">
+          <div class="included-check">✓</div>
+          <span>Works with your existing sample library</span>
+        </div>
+        <div class="included-item">
+          <div class="included-check">✓</div>
+          <span>Free in your 14-day trial</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── PLUGIN 1: DRUM ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="plugin-section" id="drum">
+    <span class="s-tag">S2 · DRUM Plugin</span>
+    <div class="container plugin-header">
+      <div class="plugin-name-badge">
+        <div class="badge-icon badge-drum">DR</div>
+        <span>Loopcloud DRUM</span>
+      </div>
+      <h2 class="plugin-h2">Your kit.<br>Built in <em>seconds.</em></h2>
+      <p class="plugin-lead">A 16-pad drum machine that builds unique kits from your sample library — and Loopcloud's 5 million+ catalogue — with a single click. Pattern, sequence, export. Done.</p>
+      <a href="lc8-subscription-wireframe.html" style="text-decoration:none"><button class="btn btn-primary-lg">Try DRUM free</button></a>
+    </div>
+
+    <!-- Main DRUM screenshot -->
+    <div class="container" style="margin-bottom:0">
+      <div class="plugin-screenshot" style="height:520px">
+        <span class="screenshot-label">Screenshot placeholder</span>
+        <p class="screenshot-desc">
+          Loopcloud DRUM UI: full-width view of the 16-pad grid, kit generator button prominent, waveform previews on each pad, per-pad parameter controls (pitch, volume, pan, filter) visible. Dark UI, yellow accents. High-res screenshot from the actual plugin at 1440px width.
+        </p>
+      </div>
+    </div>
+
+    <!-- DRUM feature rows -->
+    <div class="plugin-features">
+      <div class="plugin-feat-row">
+        <div class="plugin-feat-media">
+          <span class="screenshot-label">Screenshot placeholder</span>
+          <p class="screenshot-desc" style="max-width:280px;text-align:center;font-size:12px">
+            Kit Generator in action — 16 pads filled, "Generate Kit" button highlighted. Shows real sample names loaded per pad.
+          </p>
+        </div>
+        <div class="plugin-feat-body">
+          <span class="label">Kit Generator</span>
+          <h3 class="plugin-feat-h3">A new kit with every click.</h3>
+          <p class="plugin-feat-p">Hit "Generate Kit" and 16 pads are instantly filled with samples that fit together. Lock the pads you like, regenerate the rest. It's the fastest way to get from zero to a complete drum kit — using any sample, from any source.</p>
+          <button class="btn-alt-feature">Try DRUM free →</button>
+        </div>
+      </div>
+      <div class="plugin-feat-row plugin-feat-row-reverse">
+        <div class="plugin-feat-media">
+          <span class="screenshot-label">Screenshot placeholder</span>
+          <p class="screenshot-desc" style="max-width:280px;text-align:center;font-size:12px">
+            DRUM sequencer view: step-sequencer grid with an active 4-bar pattern, play/stop transport, tempo field.
+          </p>
+        </div>
+        <div class="plugin-feat-body">
+          <span class="label">Sequencer</span>
+          <h3 class="plugin-feat-h3">Trigger, sequence, or play — your way.</h3>
+          <p class="plugin-feat-p">Build patterns in DRUM's built-in sequencer or play pads live via MIDI. When you're happy, export the audio or MIDI directly to your DAW. The patterns you create accumulate into a personal loop library that grows with every session.</p>
+          <button class="btn-alt-feature">See it in action →</button>
+        </div>
+      </div>
+      <div class="plugin-feat-row">
+        <div class="plugin-feat-media">
+          <div class="video-placeholder" style="width:100%;height:100%;border-radius:0;border:none">
+            <span class="vid-label">Video placeholder</span>
+            <div class="play-btn">▶</div>
+            <p>DRUM workflow demo — 60 to 90 second video showing the full workflow: generate kit → lock pads → tweak parameters → export to Ableton. Sourced from the official Loopcloud YouTube channel (V4cUaP59iNs).</p>
+          </div>
+        </div>
+        <div class="plugin-feat-body">
+          <span class="label">Sound Shaping</span>
+          <h3 class="plugin-feat-h3">Mix as you go. Export when it's right.</h3>
+          <p class="plugin-feat-p">Each pad has its own pitch, volume, pan, and filter controls — so you're shaping your kit as you build it, not after. Multi-output routing lets advanced users send individual pads to separate DAW channels for total mix control.</p>
+          <button class="btn-alt-feature">Explore DRUM →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRUM tiles -->
+    <div class="plugin-tiles">
+      <div class="plugin-tile">
+        <span class="tile-icon">🎯</span>
+        <h4 class="tile-h4">Works with any sample</h4>
+        <p class="tile-p">Import from Loopcloud's 5M+ catalogue or use your own samples. DRUM doesn't care where the sound comes from.</p>
+      </div>
+      <div class="plugin-tile">
+        <span class="tile-icon">🔁</span>
+        <h4 class="tile-h4">Audio + MIDI export</h4>
+        <p class="tile-p">Export your pattern as audio or MIDI into any DAW. Drag and drop — the sound is yours to keep.</p>
+      </div>
+      <div class="plugin-tile">
+        <span class="tile-icon">🎛️</span>
+        <h4 class="tile-h4">Multi-output routing</h4>
+        <p class="tile-p">Route individual pads to separate mixer channels for surgical control over your kit in the mix.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="plugin-divider"></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── PLUGIN 2: PLAY ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="plugin-section" id="play">
+    <span class="s-tag">S3 · PLAY Plugin</span>
+    <div class="container plugin-header">
+      <div class="plugin-name-badge">
+        <div class="badge-icon badge-play">PL</div>
+        <span>Loopcloud PLAY</span>
+      </div>
+      <h2 class="plugin-h2">Instruments built by<br><em>the industry.</em></h2>
+      <p class="plugin-lead">Over 20 years of Loopmasters sound design and artist curation, distilled into a playable instrument plugin. Access an expanding gallery of pro-quality sounds — basses, keys, pads, synths, strings — designed by the people behind the world's best sample packs.</p>
+      <a href="lc8-subscription-wireframe.html" style="text-decoration:none"><button class="btn btn-primary-lg">Try PLAY free</button></a>
+    </div>
+
+    <!-- Main PLAY screenshot -->
+    <div class="container" style="margin-bottom:0">
+      <div class="plugin-screenshot" style="height:520px">
+        <span class="screenshot-label">Screenshot placeholder</span>
+        <p class="screenshot-desc">
+          Loopcloud PLAY UI: instrument browser on the left showing categories (Basses, Keys, Pads, Synths, Strings, FX), a selected instrument with a large visual waveform or texture in the centre, and playback/macro controls on the right. Dark UI with blue accent. High-res 1440px screenshot from the actual plugin.
+        </p>
+      </div>
+    </div>
+
+    <!-- PLAY feature rows -->
+    <div class="plugin-features">
+      <div class="plugin-feat-row">
+        <div class="plugin-feat-media">
+          <span class="screenshot-label">Screenshot placeholder</span>
+          <p class="screenshot-desc" style="max-width:280px;text-align:center;font-size:12px">
+            PLAY instrument browser — left panel showing genre-based presets or instrument categories. A bass preset is selected and highlighted.
+          </p>
+        </div>
+        <div class="plugin-feat-body">
+          <span class="label">Curated Sound Library</span>
+          <h3 class="plugin-feat-h3">Sounds from the people who know them.</h3>
+          <p class="plugin-feat-p">Every preset in PLAY was built by seasoned sound designers and artists — the same people behind Loopmasters' most acclaimed sample packs. The result is an instrument library that actually sounds like music, not a demo reel.</p>
+          <button class="btn-alt-feature">Browse PLAY sounds →</button>
+        </div>
+      </div>
+      <div class="plugin-feat-row plugin-feat-row-reverse">
+        <div class="plugin-feat-media">
+          <span class="screenshot-label">Screenshot placeholder</span>
+          <p class="screenshot-desc" style="max-width:280px;text-align:center;font-size:12px">
+            PLAY macro controls panel — four large knobs labeled with contextual names (e.g. Brightness, Attack, Release, Drive) mapped to the selected instrument.
+          </p>
+        </div>
+        <div class="plugin-feat-body">
+          <span class="label">Playable Macros</span>
+          <h3 class="plugin-feat-h3">Complex sounds. Simple controls.</h3>
+          <p class="plugin-feat-p">PLAY's interface is intentionally stripped back. Every instrument exposes just the controls that matter — macro knobs mapped to the most expressive parameters. Automate them in your DAW to add movement and life to any sound.</p>
+          <button class="btn-alt-feature">Try PLAY free →</button>
+        </div>
+      </div>
+      <div class="plugin-feat-row">
+        <div class="plugin-feat-media">
+          <div class="video-placeholder" style="width:100%;height:100%;border-radius:0;border:none">
+            <span class="vid-label">Video placeholder</span>
+            <div class="play-btn">▶</div>
+            <p>PLAY walkthrough — 60 to 90 seconds showing instrument browsing, playing a melody, adjusting macros, and dropping MIDI into a DAW. From Loopcloud's official YouTube channel (579hBO9cphw).</p>
+          </div>
+        </div>
+        <div class="plugin-feat-body">
+          <span class="label">Growing Collection</span>
+          <h3 class="plugin-feat-h3">New instruments every month.</h3>
+          <p class="plugin-feat-p">PLAY's sound library expands with every release cycle. New instruments from new artists, new genres, new moods — added to your subscription without any extra cost. The plugin you install today will sound different in six months.</p>
+          <button class="btn-alt-feature">See what's new →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAY tiles -->
+    <div class="plugin-tiles">
+      <div class="plugin-tile">
+        <span class="tile-icon">🎹</span>
+        <h4 class="tile-h4">Fully playable via MIDI</h4>
+        <p class="tile-p">Play PLAY from any MIDI keyboard, pad controller, or piano roll. Every instrument responds to velocity and expression.</p>
+      </div>
+      <div class="plugin-tile">
+        <span class="tile-icon">📦</span>
+        <h4 class="tile-h4">Grows with your subscription</h4>
+        <p class="tile-p">New instrument packs added monthly. Pro and Producer plan subscribers get early access to drops before anyone else.</p>
+      </div>
+      <div class="plugin-tile">
+        <span class="tile-icon">🔗</span>
+        <h4 class="tile-h4">Synced to your DAW</h4>
+        <p class="tile-p">PLAY syncs tempo and transport with your project. Every arp, sequence, or modulation locks to your BPM automatically.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── LISTEN ── -->
+  <section id="listen" style="border-top:1px solid #222;border-bottom:1px solid #222">
+    <div class="container" style="max-width:1200px;margin:0 auto;padding:0 48px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;min-height:480px">
+        <!-- Body -->
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:64px 56px 64px 0;background:#000">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,245,0,0.07);border:1px solid rgba(255,245,0,0.22);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:600;color:#fff500;margin-bottom:16px;width:fit-content">
+            <div style="width:6px;height:6px;background:#fff500;border-radius:50%"></div>New in Loopcloud 8
+          </div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:12px">Listen</div>
+          <h2 style="font-size:38px;font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin-bottom:18px">Drop it on your master.<br><span style="color:#fff500">Loopcloud shows you<br>what fits.</span></h2>
+          <p style="font-size:14px;font-weight:300;color:#a8a8a8;line-height:1.8;max-width:400px;margin-bottom:28px">Listen is a VST/AU plugin you insert on any channel in your DAW — typically the master. It reads what your mix sounds like and opens a live results tab in Loopcloud showing the loops that actually complement what you've already built. Samples that fit — without the guesswork.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#a8a8a8">
+              <div style="width:18px;height:18px;border-radius:50%;background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.22);color:#fff500;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;margin-top:1px">✓</div>
+              Works inside any DAW — Ableton, Logic, FL Studio, Bitwig, Cubase, and more
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#a8a8a8">
+              <div style="width:18px;height:18px;border-radius:50%;background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.22);color:#fff500;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;margin-top:1px">✓</div>
+              Results update live as your mix evolves — always relevant to what you've built
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#a8a8a8">
+              <div style="width:18px;height:18px;border-radius:50%;background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.22);color:#fff500;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;margin-top:1px">✓</div>
+              Opens a dedicated results tab in Loopcloud — drag straight into your session
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#a8a8a8">
+              <div style="width:18px;height:18px;border-radius:50%;background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.22);color:#fff500;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;margin-top:1px">✓</div>
+              Included free with all Loopcloud plans
+            </div>
+          </div>
+        </div>
+        <!-- Visual -->
+        <div style="background:#161616;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 36px;gap:14px">
+          <!-- DAW strip -->
+          <div style="width:100%;background:#111;border:1px solid #2e2e2e;border-radius:6px;overflow:hidden">
+            <div style="background:#0a0a0a;padding:10px 14px;border-bottom:1px solid #222;display:flex;align-items:center;gap:8px">
+              <div style="display:flex;gap:4px"><div style="width:8px;height:8px;border-radius:50%;background:#2e2e2e"></div><div style="width:8px;height:8px;border-radius:50%;background:#2e2e2e"></div><div style="width:8px;height:8px;border-radius:50%;background:#2e2e2e"></div></div>
+              <div style="font-size:10px;color:#555">DAW — Session in progress</div>
+            </div>
+            <div style="padding:14px;display:grid;grid-template-columns:repeat(5,1fr);gap:6px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:9px;font-weight:600;text-transform:uppercase;color:#555">Kick</span><div style="width:28px;height:64px;background:#161616;border:1px solid #222;border-radius:2px;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:48px;background:rgba(255,245,0,0.35);border-radius:2px"></div></div></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:9px;font-weight:600;text-transform:uppercase;color:#555">Bass</span><div style="width:28px;height:64px;background:#161616;border:1px solid #222;border-radius:2px;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:32px;background:rgba(13,82,214,0.45);border-radius:2px"></div></div></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:9px;font-weight:600;text-transform:uppercase;color:#555">Synth</span><div style="width:28px;height:64px;background:#161616;border:1px solid #222;border-radius:2px;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:20px;background:rgba(123,63,228,0.45);border-radius:2px"></div></div></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:9px;font-weight:600;text-transform:uppercase;color:#555">FX</span><div style="width:28px;height:64px;background:#161616;border:1px solid #222;border-radius:2px;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:12px;background:rgba(168,168,168,0.25);border-radius:2px"></div></div></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:9px;font-weight:600;text-transform:uppercase;color:#555">Master</span><div style="width:28px;height:64px;background:#161616;border:1px solid #222;border-radius:2px;display:flex;flex-direction:column;justify-content:flex-end"><div style="height:56px;background:rgba(255,255,255,0.2);border-radius:2px"></div></div><div style="background:rgba(123,63,228,0.25);border:1px solid rgba(123,63,228,0.65);border-radius:2px;padding:3px 6px;font-size:8px;font-weight:700;color:#b47fff;letter-spacing:0.5px">LISTEN</div></div>
+            </div>
+          </div>
+          <!-- Arrow -->
+          <div style="display:flex;align-items:center;width:100%;gap:12px"><div style="flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(123,63,228,0.4),transparent)"></div><span style="color:#b47fff;font-size:16px">↓</span><div style="flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(123,63,228,0.4),transparent)"></div></div>
+          <!-- Results -->
+          <div style="width:100%;background:#111;border:1px solid #2e2e2e;border-radius:6px;overflow:hidden">
+            <div style="padding:10px 14px;border-bottom:1px solid #222;display:flex;align-items:center;justify-content:space-between">
+              <div style="font-size:11px;font-weight:600;color:#b47fff">Matching sounds for your mix</div>
+              <div style="font-size:10px;color:#555">130 BPM · A Minor</div>
+            </div>
+            <div style="padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #222">
+              <div style="width:24px;height:24px;border-radius:50%;background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.2);display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff500;flex-shrink:0">▶</div>
+              <div style="flex:1"><div style="font-size:11px;font-weight:600">Dark Perc Loop 06</div><div style="font-size:9px;color:#555;margin-top:1px">Industrial Toolkit · 130bpm · Am</div></div>
+              <div style="flex:1;height:14px;background:linear-gradient(to right,rgba(255,245,0,0.15),rgba(255,245,0,0.05));border-radius:1px"></div>
+              <div style="font-size:9px;font-weight:700;color:#fff500;flex-shrink:0">98%</div>
+            </div>
+            <div style="padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #222">
+              <div style="width:24px;height:24px;border-radius:50%;background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.2);display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff500;flex-shrink:0">▶</div>
+              <div style="flex:1"><div style="font-size:11px;font-weight:600">Hollow Kick 03</div><div style="font-size:9px;color:#555;margin-top:1px">Techno Architecture · 130bpm</div></div>
+              <div style="flex:1;height:14px;background:linear-gradient(to right,rgba(255,245,0,0.12),rgba(255,245,0,0.04));border-radius:1px"></div>
+              <div style="font-size:9px;font-weight:700;color:#fff500;flex-shrink:0">94%</div>
+            </div>
+            <div style="padding:10px 14px;display:flex;align-items:center;gap:10px">
+              <div style="width:24px;height:24px;border-radius:50%;background:rgba(255,245,0,0.08);border:1px solid rgba(255,245,0,0.2);display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff500;flex-shrink:0">▶</div>
+              <div style="flex:1"><div style="font-size:11px;font-weight:600">Sub Thud 09</div><div style="font-size:9px;color:#555;margin-top:1px">Deep Foundation · 130bpm · Am</div></div>
+              <div style="flex:1;height:14px;background:linear-gradient(to right,rgba(255,245,0,0.1),rgba(255,245,0,0.03));border-radius:1px"></div>
+              <div style="font-size:9px;font-weight:700;color:#fff500;flex-shrink:0">91%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── COMPATIBILITY ── -->
+  <section id="compatibility">
+    <span class="s-tag">S4 · Compatibility</span>
+    <div class="container">
+      <div class="compat-head">
+        <h2 class="compat-h2">Works where you work.</h2>
+        <p class="compat-sub">Both plugins available as VST3, AU, and AAX — compatible with all major DAWs on Mac and Windows.</p>
+      </div>
+      <div class="compat-grid">
+        <div class="compat-item"><p class="compat-name">Ableton Live</p><p class="compat-type">VST3 / AU</p></div>
+        <div class="compat-item"><p class="compat-name">FL Studio</p><p class="compat-type">VST3</p></div>
+        <div class="compat-item"><p class="compat-name">Logic Pro</p><p class="compat-type">AU</p></div>
+        <div class="compat-item"><p class="compat-name">Pro Tools</p><p class="compat-type">AAX</p></div>
+        <div class="compat-item"><p class="compat-name">Cubase</p><p class="compat-type">VST3</p></div>
+        <div class="compat-item"><p class="compat-name">Bitwig</p><p class="compat-type">VST3</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section id="plugin-cta">
+    <span class="s-tag" style="color:rgba(0,0,0,0.15)">S5 · Final CTA</span>
+    <h2 class="plugin-cta-h2">Both plugins.<br>One subscription.</h2>
+    <p class="plugin-cta-sub">DRUM and PLAY are included free with every paid plan. Try them for 14 days — £0.00 today.</p>
+    <a href="lc8-subscription-wireframe.html" style="text-decoration:none"><button class="btn-cta-dark">Start free trial</button></a>
+    <p class="cta-note">Includes full access to all features &nbsp;·&nbsp; Cancel anytime</p>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="lc8-landing-wireframe.html" style="text-decoration:none"><img src="lc8-logo.svg" alt="Loopcloud" style="height:16px;width:auto;display:block"></a>
+      <p class="footer-tagline">The sample platform for music producers.</p>
+    </div>
+    <div class="footer-newsletter">
+      <p class="footer-newsletter-label">Newsletter</p>
+      <p class="footer-newsletter-desc">New sounds, tutorials, and product updates — straight to your inbox.</p>
+      <div class="footer-newsletter-row">
+        <input class="footer-newsletter-input" type="email" placeholder="your@email.com">
+        <button class="footer-newsletter-btn">Subscribe</button>
+      </div>
+    </div>
+    <div class="footer-links-col">
+      <p class="footer-links-heading">Product</p>
+      <a href="lc8-features-wireframe.html">Features</a>
+      <a href="lc8-plugin-suite-wireframe.html">Plugin Suite</a>
+      <a href="lc8-subscription-wireframe.html">Pricing</a>
+      <a href="lc8-download-wireframe.html">Download</a>
+    </div>
+    <div class="footer-links-col">
+      <p class="footer-links-heading">Explore</p>
+      <a href="lc8-magazine-wireframe.html">Magazine</a>
+      <a href="#" style="pointer-events:none;opacity:.4">Sounds</a>
+      <a href="#">Tutorials</a>
+      <a href="#">Support</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Loopmasters Ltd. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Settings</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Account — Loopcloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0a0a;color:#fff;font-family:'Be Vietnam Pro',sans-serif;min-height:100vh}
+
+/* Nav — logged-in state */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.96);backdrop-filter:blur(12px);border-bottom:1px solid #222;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{text-decoration:none;display:flex;align-items:center}
+.nav-logo img{height:20px;width:auto;display:block}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;color:#888;text-decoration:none;letter-spacing:.3px;transition:color .15s}
+.nav-links a:hover{color:#fff}
+.nav-user{display:flex;align-items:center;gap:10px}
+.nav-avatar{width:28px;height:28px;border-radius:50%;background:#fff500;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#000;flex-shrink:0}
+.nav-user-name{font-size:12px;font-weight:500;color:#fff}
+.nav-logout{font-size:12px;color:#555;text-decoration:none;margin-left:4px}
+.nav-logout:hover{color:#888}
+
+/* Layout */
+.page-wrap{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 72px);width:100%;max-width:1200px;margin:0 auto;padding:0 48px}
+
+/* Sidebar */
+.sidebar{border-right:1px solid #1a1a1a;padding:40px 0 40px}
+.sidebar-section{margin-bottom:32px}
+.sidebar-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#444;padding:0 24px 10px 0;display:block}
+.sidebar-nav{list-style:none;display:flex;flex-direction:column;gap:2px}
+.sidebar-nav a{font-size:13px;font-weight:500;color:#666;text-decoration:none;padding:8px 24px 8px 0;display:flex;align-items:center;gap:10px;border-radius:2px;transition:color .15s}
+.sidebar-nav a:hover{color:#fff}
+.sidebar-nav a.active{color:#fff}
+.sidebar-nav a.active::before{content:'';width:2px;height:100%;background:#fff500;position:absolute;left:-24px}
+.sidebar-nav a{position:relative}
+.s-icon{font-size:14px;opacity:.6}
+.sidebar-nav a.active .s-icon{opacity:1}
+
+/* Main */
+.main{padding:40px 0 40px 48px}
+.page-title{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:4px}
+.page-sub{font-size:13px;color:#666;margin-bottom:36px}
+
+/* Plan card */
+.plan-card{background:#111;border:1px solid #222;border-radius:6px;padding:28px;margin-bottom:20px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.plan-badge{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff500;margin-bottom:8px}
+.plan-name{font-size:20px;font-weight:800;letter-spacing:-.5px;margin-bottom:4px}
+.plan-price{font-size:13px;color:#666;margin-bottom:20px}
+.credits-label{font-size:11px;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.credits-bar-wrap{background:#1a1a1a;border-radius:2px;height:6px;margin-bottom:6px;overflow:hidden}
+.credits-bar{height:100%;background:#fff500;border-radius:2px;width:44%}
+.credits-meta{display:flex;justify-content:space-between;font-size:12px;color:#555}
+.credits-meta strong{color:#fff}
+.plan-actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.btn-upgrade{background:#fff500;color:#000;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;font-weight:700;padding:8px 18px;border:none;border-radius:2px;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-block}
+.btn-manage{background:transparent;color:#666;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;font-weight:500;padding:8px 18px;border:1px solid #2a2a2a;border-radius:2px;cursor:pointer;white-space:nowrap}
+.btn-manage:hover{color:#fff;border-color:#444}
+
+.renew-note{font-size:12px;color:#444;text-align:right;margin-top:4px}
+
+/* Stats row */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
+.stat-card{background:#111;border:1px solid #1a1a1a;border-radius:6px;padding:20px 24px}
+.stat-value{font-size:28px;font-weight:800;letter-spacing:-1px;margin-bottom:4px}
+.stat-label{font-size:12px;color:#555;font-weight:400}
+
+/* Section heading */
+.section-heading{font-size:14px;font-weight:700;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #1a1a1a;display:flex;justify-content:space-between;align-items:center}
+.section-heading a{font-size:12px;font-weight:500;color:#555;text-decoration:none}
+.section-heading a:hover{color:#fff500}
+
+/* Downloads table */
+.dl-table{width:100%;border-collapse:collapse;margin-bottom:32px}
+.dl-table th{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#444;text-align:left;padding:0 0 10px;border-bottom:1px solid #1a1a1a}
+.dl-table td{padding:12px 0;border-bottom:1px solid #141414;font-size:13px;vertical-align:middle}
+.dl-table tr:last-child td{border-bottom:none}
+.dl-filename{font-weight:500;color:#fff;margin-bottom:2px}
+.dl-meta-row{font-size:11px;color:#444}
+.dl-pack{color:#555;font-size:12px}
+.dl-date{color:#444;font-size:12px;white-space:nowrap}
+.dl-format{font-size:10px;font-weight:700;letter-spacing:.08em;background:#1a1a1a;color:#666;padding:2px 7px;border-radius:2px}
+
+/* Billing table */
+.bill-table{width:100%;border-collapse:collapse;margin-bottom:8px}
+.bill-table th{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#444;text-align:left;padding:0 0 10px;border-bottom:1px solid #1a1a1a}
+.bill-table td{padding:12px 0;border-bottom:1px solid #141414;font-size:13px}
+.bill-table tr:last-child td{border-bottom:none}
+.bill-status{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:2px}
+.bill-paid{background:rgba(76,175,80,.12);color:#4caf50}
+</style>
+</head><body>
+
+<nav>
+  <a href="lc8-landing-wireframe.html" class="nav-logo"><img src="lc8-logo.svg" alt="Loopcloud" style="height:20px;width:auto;display:block"></a>
+  <ul class="nav-links">
+    <li><a href="#" style="pointer-events:none;opacity:.4;cursor:default">Sounds</a></li>
+    <li><a href="lc8-features-wireframe.html">Features</a></li>
+    <li><a href="lc8-plugin-suite-wireframe.html">Plugin Suite</a></li>
+    <li><a href="lc8-subscription-wireframe.html">Pricing</a></li>
+    <li><a href="lc8-magazine-wireframe.html">Magazine</a></li>
+  </ul>
+  <div class="nav-user">
+    <div class="nav-avatar">IS</div>
+    <span class="nav-user-name">Igor S.</span>
+    <a href="lc8-login-wireframe.html" class="nav-logout">Log out</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <span class="sidebar-label">Account</span>
+      <ul class="sidebar-nav">
+        <li><a href="#" class="active"><span class="s-icon">◈</span> Plan &amp; Billing</a></li>
+        <li><a href="#"><span class="s-icon">↓</span> Downloads</a></li>
+        <li><a href="#"><span class="s-icon">♡</span> Favourites</a></li>
+        <li><a href="#"><span class="s-icon">⊙</span> Profile</a></li>
+        <li><a href="#"><span class="s-icon">⚙</span> Settings</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <span class="sidebar-label">Apps</span>
+      <ul class="sidebar-nav">
+        <li><a href="lc8-download-wireframe.html"><span class="s-icon">↓</span> Download app</a></li>
+        <li><a href="lc8-plugin-suite-wireframe.html"><span class="s-icon">◎</span> Plugin Suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+    <h1 class="page-title">Plan &amp; Billing</h1>
+    <p class="page-sub">Manage your subscription, credits, and payment details.</p>
+
+    <!-- Plan card -->
+    <div class="plan-card">
+      <div>
+        <p class="plan-badge">Active plan</p>
+        <p class="plan-name">Studio</p>
+        <p class="plan-price">£11.99 / month · renews 4 Sep 2026</p>
+        <p class="credits-label">Credits this month</p>
+        <div class="credits-bar-wrap"><div class="credits-bar"></div></div>
+        <div class="credits-meta"><span><strong>110</strong> used</span><span><strong>250</strong> total</span></div>
+      </div>
+      <div class="plan-actions">
+        <a href="lc8-subscription-wireframe.html" class="btn-upgrade">Upgrade plan</a>
+        <button class="btn-manage">Manage billing</button>
+        <p class="renew-note">Cancel anytime</p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-value">140</div>
+        <div class="stat-label">Credits remaining</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">847</div>
+        <div class="stat-label">Sounds downloaded</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">12</div>
+        <div class="stat-label">Months as member</div>
+      </div>
+    </div>
+
+    <!-- Recent downloads -->
+    <div class="section-heading">
+      Recent downloads
+      <a href="#">View all →</a>
+    </div>
+    <table class="dl-table">
+      <thead>
+        <tr>
+          <th>File</th>
+          <th>Pack</th>
+          <th>Date</th>
+          <th>Format</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="dl-filename">Dark Minimal Loop 140bpm Am</div></td>
+          <td class="dl-pack">Warehouse Techno Vol.3</td>
+          <td class="dl-date">Today</td>
+          <td><span class="dl-format">WAV</span></td>
+        </tr>
+        <tr>
+          <td><div class="dl-filename">Afro Perc Fill 128bpm</div></td>
+          <td class="dl-pack">Afro House Essentials</td>
+          <td class="dl-date">Today</td>
+          <td><span class="dl-format">WAV</span></td>
+        </tr>
+        <tr>
+          <td><div class="dl-filename">Sub Bass One Shot C</div></td>
+          <td class="dl-pack">Deep Bass Lab</td>
+          <td class="dl-date">Yesterday</td>
+          <td><span class="dl-format">WAV</span></td>
+        </tr>
+        <tr>
+          <td><div class="dl-filename">Chord Stab Eb Major 126bpm</div></td>
+          <td class="dl-pack">Future House Chords</td>
+          <td class="dl-date">2 Aug</td>
+          <td><span class="dl-format">WAV</span></td>
+        </tr>
+        <tr>
+          <td><div class="dl-filename">Hi Hat Roll 16th Groove</div></td>
+          <td class="dl-pack">Drum Tools 2</td>
+          <td class="dl-date">1 Aug</td>
+          <td><span class="dl-format">WAV</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Billing history -->
+    <div class="section-heading">Billing history</div>
+    <table class="bill-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:#555">4 Jul 2026</td>
+          <td>Studio Plan · Monthly</td>
+          <td>£11.99</td>
+          <td><span class="bill-status bill-paid">Paid</span></td>
+        </tr>
+        <tr>
+          <td style="color:#555">4 Jun 2026</td>
+          <td>Studio Plan · Monthly</td>
+          <td>£11.99</td>
+          <td><span class="bill-status bill-paid">Paid</span></td>
+        </tr>
+        <tr>
+          <td style="color:#555">4 May 2026</td>
+          <td>Studio Plan · Monthly</td>
+          <td>£11.99</td>
+          <td><span class="bill-status bill-paid">Paid</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+</div>
+
+</body></html>

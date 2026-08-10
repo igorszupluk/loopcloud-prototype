@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loopcloud 8 — Plans & Pricing (Wireframe)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font:        'Be Vietnam Pro', sans-serif;
+      --main-brand:  #fff500;
+      --main-black:  #000000;
+      --main-white:  #ffffff;
+      --main-stone:  #D6D1CC;
+      --bg:          #0d0d0d;
+      --surface:     #161616;
+      --border:      rgba(255,255,255,0.1);
+      --concrete:    rgba(255,255,255,0.55);
+      --yellow:      #fff500;
+      --radius-xxs:  2px;
+      --radius-xs:   4px;
+      --radius-sm:   6px;
+      --radius-md:   8px;
+      --radius-lg:   12px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--main-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    
+    
+    
+    
+    
+    
+    
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .s-tag {
+      position: absolute; top: 16px; left: 16px;
+      font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.15); pointer-events: none;
+    }
+    .label {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--main-brand); margin-bottom: 4px;
+    }
+
+    /* ── HERO ── */
+    #sub-hero {
+      position: relative;
+      padding: 96px 0 64px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .sub-hero-h1 {
+      font-size: 52px; font-weight: 700; line-height: 1.1;
+      letter-spacing: -1px; margin-bottom: 16px;
+    }
+    .sub-hero-p {
+      font-size: 17px; font-weight: 300; color: var(--concrete);
+      max-width: 480px; margin: 0 auto 32px; line-height: 1.6;
+    }
+    .trial-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,245,0,0.08); border: 1px solid rgba(255,245,0,0.2);
+      border-radius: 99px; padding: 6px 16px;
+      font-size: 13px; color: var(--main-brand);
+    }
+    .trial-badge::before { content: '✓'; font-weight: 700; }
+
+    /* ── TOGGLE ── */
+    #billing-toggle {
+      padding: 32px 0 8px;
+      display: flex; justify-content: center; align-items: center; gap: 16px;
+    }
+    .toggle-label { font-size: 14px; color: var(--concrete); }
+    .toggle-pill {
+      width: 48px; height: 26px; border-radius: 99px;
+      background: var(--main-brand); position: relative; cursor: pointer;
+    }
+    .toggle-pill::after {
+      content: ''; position: absolute; top: 3px; left: 3px;
+      width: 20px; height: 20px; border-radius: 50%; background: var(--main-black);
+      transition: left 0.2s;
+    }
+    .save-badge {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--main-brand);
+      background: rgba(255,245,0,0.1); border-radius: 99px;
+      padding: 3px 10px;
+    }
+
+    /* ── PLANS ── */
+    #plans { padding: 48px 0 96px; position: relative; }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+    .plan {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .plan.featured {
+      border-color: var(--main-brand);
+      position: relative;
+    }
+    .plan-popular {
+      background: var(--main-brand); color: var(--main-black);
+      text-align: center; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px;
+    }
+    .plan-body { padding: 28px 24px 32px; flex: 1; display: flex; flex-direction: column; }
+    .plan-name { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--concrete); margin-bottom: 12px; }
+    .plan-price { font-size: 40px; font-weight: 700; letter-spacing: -1px; line-height: 1; margin-bottom: 4px; }
+    .plan-price sup { font-size: 20px; font-weight: 400; vertical-align: top; margin-top: 6px; }
+    .plan-price-sub { font-size: 13px; color: var(--concrete); margin-bottom: 20px; }
+    .plan-credits {
+      background: rgba(255,245,0,0.07); border: 1px solid rgba(255,245,0,0.15);
+      border-radius: var(--radius-sm); padding: 10px 14px;
+      font-size: 13px; color: var(--main-brand); margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .plan-divider { height: 1px; background: var(--border); margin: 0 0 20px; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .plan-features li {
+      font-size: 13px; font-weight: 300; color: var(--concrete);
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .plan-features li::before { content: '✓'; color: var(--main-brand); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .plan-features li.off { color: rgba(255,255,255,0.2); }
+    .plan-features li.off::before { content: '–'; color: rgba(255,255,255,0.15); }
+    .plan-btn {
+      margin-top: 24px; width: 100%;
+      padding: 13px; border-radius: var(--radius-xxs);
+      font-family: var(--font); font-size: 14px; font-weight: 400;
+      cursor: pointer; border: none; transition: opacity 0.15s;
+    }
+    .plan-btn:hover { opacity: 0.85; }
+    .plan-btn-primary { background: var(--main-brand); color: var(--main-black); }
+    .plan-btn-outline { background: transparent; color: var(--main-white); border: 1px solid var(--border); }
+
+    /* ── COMPARE ── */
+    #compare { padding: 80px 0; border-top: 1px solid var(--border); position: relative; }
+    .compare-head { text-align: center; margin-bottom: 48px; }
+    .compare-h2 { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; }
+    table.compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table th, .compare-table td {
+      padding: 14px 20px; text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px; font-weight: 300;
+    }
+    .compare-table thead th {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--concrete);
+      padding-bottom: 16px;
+    }
+    .compare-table thead th:first-child { color: var(--main-white); font-size: 14px; }
+    .compare-table td:not(:first-child) { text-align: center; color: var(--concrete); }
+    .compare-table td.yes { color: var(--main-brand); font-weight: 600; }
+    .compare-table td.no { color: rgba(255,255,255,0.2); }
+    .compare-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+    .compare-table .featured-col { background: rgba(255,245,0,0.04); }
+
+    /* ── FAQ ── */
+    #faq { padding: 80px 0; border-top: 1px solid var(--border); position: relative; }
+    .faq-head { text-align: center; margin-bottom: 48px; }
+    .faq-h2 { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .faq-item {
+      padding: 28px; border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .faq-q { font-size: 15px; font-weight: 500; margin-bottom: 10px; }
+    .faq-a { font-size: 14px; font-weight: 300; color: var(--concrete); line-height: 1.7; }
+
+    /* ── CTA FOOTER ── */
+    #sub-cta {
+      padding: 96px 0; text-align: center;
+      background: var(--main-brand);
+    }
+    .sub-cta-h2 { font-size: 44px; font-weight: 700; color: var(--main-black); letter-spacing: -0.8px; margin-bottom: 12px; }
+    .sub-cta-p { font-size: 17px; color: rgba(0,0,0,0.6); margin-bottom: 32px; }
+    .btn-cta-black {
+      background: var(--main-black); color: var(--main-white);
+      border: none; border-radius: var(--radius-xxs);
+      font-family: var(--font); font-size: 15px; font-weight: 400;
+      padding: 16px 28px; cursor: pointer;
+    }
+
+    /* ── FOOTER ── */
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+  <a href="lc8-landing-wireframe.html" class="nav-logo"><img src="lc8-logo.svg" alt="Loopcloud" style="height:20px;width:auto;display:block"></a>
+  <ul class="nav-links">
+    <li><a href="#" style="pointer-events:none;opacity:.4;cursor:default">Sounds</a></li>
+    <li><a href="lc8-features-wireframe.html">Features</a></li>
+    <li><a href="lc8-plugin-suite-wireframe.html">Plugin Suite</a></li>
+    <li><a href="lc8-subscription-wireframe.html" class="active">Pricing</a></li>
+    <li><a href="lc8-magazine-wireframe.html">Magazine</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="lc8-login-wireframe.html" style="text-decoration:none"><button class="nav-login">Log in</button></a>
+    <a href="lc8-download-wireframe.html" class="nav-cta">Download</a>
+  </div>
+</nav>
+
+  <!-- HERO -->
+  <section id="sub-hero">
+    <span class="s-tag">S1 · Hero</span>
+    <div class="container">
+      <span class="label">Pricing</span>
+      <h1 class="sub-hero-h1">The plan that fits<br>your workflow.</h1>
+      <p class="sub-hero-p">14 days free, then choose your plan. Every tier gives you full access to the platform.</p>
+      <div class="trial-badge">14-day free trial on all paid plans. £0.00 due today.</div>
+    </div>
+  </section>
+
+  <!-- BILLING TOGGLE -->
+  <section id="billing-toggle">
+    <span class="toggle-label">Monthly</span>
+    <div class="toggle-pill"></div>
+    <span class="toggle-label">Annual</span>
+    <span class="save-badge">Save 20%</span>
+  </section>
+
+  <!-- PLANS -->
+  <section id="plans">
+    <span class="s-tag">S2 · Plans</span>
+    <div class="container">
+      <div class="plans-grid">
+
+        <!-- Free -->
+        <div class="plan">
+          <div class="plan-body">
+            <p class="plan-name">Free</p>
+            <p class="plan-price"><sup></sup>£0</p>
+            <p class="plan-price-sub">Forever free</p>
+            <div class="plan-credits">10 free credits / month</div>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li>Access to free sample pool</li>
+              <li>Desktop app + DAW plugin</li>
+              <li>Basic filters and search</li>
+              <li class="off">Loopcloud Studio</li>
+              <li class="off">Cloud library sync</li>
+              <li class="off">MIDI + preset library</li>
+              <li class="off">Offline downloads</li>
+            </ul>
+            <a href="lc8-download-wireframe.html" style="text-decoration:none"><button class="plan-btn plan-btn-outline">Get started free</button></a>
+          </div>
+        </div>
+
+        <!-- Basic -->
+        <div class="plan">
+          <div class="plan-body">
+            <p class="plan-name">Basic</p>
+            <p class="plan-price"><sup>£</sup>7.99</p>
+            <p class="plan-price-sub">per month</p>
+            <div class="plan-credits">30 credits / month</div>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li>Everything in Free</li>
+              <li>Full sample catalogue access</li>
+              <li>Loopcloud Studio</li>
+              <li>Cloud library sync</li>
+              <li class="off">MIDI + preset library</li>
+              <li class="off">Offline downloads</li>
+              <li class="off">Priority new releases</li>
+            </ul>
+            <a href="lc8-trial-signup-wireframe.html" style="text-decoration:none"><button class="plan-btn plan-btn-outline">Start free trial</button></a>
+          </div>
+        </div>
+
+        <!-- Pro (featured) -->
+        <div class="plan featured">
+          <div class="plan-popular">Most popular</div>
+          <div class="plan-body">
+            <p class="plan-name">Pro</p>
+            <p class="plan-price"><sup>£</sup>14.99</p>
+            <p class="plan-price-sub">per month</p>
+            <div class="plan-credits">100 credits / month + rollover</div>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li>Everything in Basic</li>
+              <li>MIDI + synth preset library</li>
+              <li>Offline downloads</li>
+              <li>Credits roll over (never expire)</li>
+              <li>Priority new releases</li>
+              <li>Mobile app access</li>
+              <li>Smart Discovery AI</li>
+            </ul>
+            <a href="lc8-trial-signup-wireframe.html" style="text-decoration:none"><button class="plan-btn plan-btn-primary">Start free trial</button></a>
+          </div>
+        </div>
+
+        <!-- Producer -->
+        <div class="plan">
+          <div class="plan-body">
+            <p class="plan-name">Producer</p>
+            <p class="plan-price"><sup>£</sup>24.99</p>
+            <p class="plan-price-sub">per month</p>
+            <div class="plan-credits">300 credits / month + rollover</div>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li>Everything in Pro</li>
+              <li>Exclusive artist packs</li>
+              <li>Early access to new features</li>
+              <li>Extended cloud storage</li>
+              <li>Download full sample packs</li>
+              <li>Stems + multi-track content</li>
+              <li>Commercial release licence</li>
+            </ul>
+            <a href="lc8-trial-signup-wireframe.html" style="text-decoration:none"><button class="plan-btn plan-btn-outline">Start free trial</button></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE TABLE -->
+  <section id="compare">
+    <span class="s-tag">S3 · Feature Comparison</span>
+    <div class="container">
+      <div class="compare-head">
+        <h2 class="compare-h2">Compare plans</h2>
+      </div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Free</th>
+            <th>Basic</th>
+            <th class="featured-col">Pro</th>
+            <th>Producer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Monthly credits</td><td>10</td><td>30</td><td class="featured-col yes">100</td><td>300</td></tr>
+          <tr><td>Credits roll over</td><td class="no">No</td><td class="no">No</td><td class="featured-col yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td>Full sample catalogue</td><td class="no">No</td><td class="yes">Yes</td><td class="featured-col yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td>Loopcloud Studio</td><td class="no">No</td><td class="yes">Yes</td><td class="featured-col yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td>MIDI + presets</td><td class="no">No</td><td class="no">No</td><td class="featured-col yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td>Offline downloads</td><td class="no">No</td><td class="no">No</td><td class="featured-col yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td>Mobile app</td><td class="no">No</td><td class="no">No</td><td class="featured-col yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td>Smart Discovery AI</td><td class="no">No</td><td class="no">No</td><td class="featured-col yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td>Exclusive artist packs</td><td class="no">No</td><td class="no">No</td><td class="featured-col no">No</td><td class="yes">Yes</td></tr>
+          <tr><td>Commercial licence</td><td class="no">No</td><td class="no">No</td><td class="featured-col no">No</td><td class="yes">Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <span class="s-tag">S4 · FAQ</span>
+    <div class="container">
+      <div class="faq-head">
+        <h2 class="faq-h2">Common questions</h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <p class="faq-q">What happens to my credits if I don't use them?</p>
+          <p class="faq-a">On Pro and Producer plans, unused credits roll over every month and never expire. You keep everything you've paid for.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can I cancel anytime?</p>
+          <p class="faq-a">Yes. Cancel any time and your plan stays active until the end of your billing period. Any samples you've downloaded are yours to keep.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Do I need a credit card to start the free trial?</p>
+          <p class="faq-a">Yes — we ask for a card upfront so you don't have to re-enter details when your trial ends. You won't be charged anything today. Cancel before day 14 and you'll never pay a penny.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What DAWs does Loopcloud work with?</p>
+          <p class="faq-a">Loopcloud works with all major DAWs — Ableton Live, FL Studio, Logic Pro, Pro Tools, Bitwig, Reaper, and more, as a VST/AU plugin.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can I switch plans?</p>
+          <p class="faq-a">Yes, upgrade or downgrade any time. Changes take effect at the start of your next billing cycle.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Are the samples royalty-free?</p>
+          <p class="faq-a">All samples downloaded with credits are 100% royalty-free for personal and commercial use. The Producer plan includes an extended commercial licence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="sub-cta">
+    <h2 class="sub-cta-h2">Ready to start?</h2>
+    <p class="sub-cta-p">14 days free. £0.00 today. Cancel before day 14 and pay nothing.</p>
+    <button class="btn-cta-black">Start free trial</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="lc8-landing-wireframe.html" style="text-decoration:none"><img src="lc8-logo.svg" alt="Loopcloud" style="height:16px;width:auto;display:block"></a>
+      <p class="footer-tagline">The sample platform for music producers.</p>
+    </div>
+    <div class="footer-newsletter">
+      <p class="footer-newsletter-label">Newsletter</p>
+      <p class="footer-newsletter-desc">New sounds, tutorials, and product updates — straight to your inbox.</p>
+      <div class="footer-newsletter-row">
+        <input class="footer-newsletter-input" type="email" placeholder="your@email.com">
+        <button class="footer-newsletter-btn">Subscribe</button>
+      </div>
+    </div>
+    <div class="footer-links-col">
+      <p class="footer-links-heading">Product</p>
+      <a href="lc8-features-wireframe.html">Features</a>
+      <a href="lc8-plugin-suite-wireframe.html">Plugin Suite</a>
+      <a href="lc8-subscription-wireframe.html">Pricing</a>
+      <a href="lc8-download-wireframe.html">Download</a>
+    </div>
+    <div class="footer-links-col">
+      <p class="footer-links-heading">Explore</p>
+      <a href="lc8-magazine-wireframe.html">Magazine</a>
+      <a href="#" style="pointer-events:none;opacity:.4">Sounds</a>
+      <a href="#">Tutorials</a>
+      <a href="#">Support</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Loopmasters Ltd. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Settings</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

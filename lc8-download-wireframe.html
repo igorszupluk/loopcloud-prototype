@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Download Loopcloud 8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;color:#fff;font-family:'Be Vietnam Pro',sans-serif;min-height:100vh}
+
+/* Nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-logo img{height:20px;width:auto;display:block}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:13px;font-weight:400;color:rgba(255,255,255,.7);text-decoration:none}
+.nav-links a:hover{color:#fff}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.nav-cta{background:#fff500;color:#000;font-size:12px;font-weight:700;padding:7px 16px;border-radius:2px;cursor:pointer;border:none;font-family:'Be Vietnam Pro',sans-serif;text-decoration:none;display:inline-block}
+
+/* Two-column layout */
+.dl-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 72px)}
+
+/* Left hero */
+.dl-left{padding:80px 64px 80px 64px;display:flex;flex-direction:column;justify-content:flex-end;border-right:1px solid rgba(255,255,255,.08)}
+.dl-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#fff500;margin-bottom:28px}
+.dl-h1{font-size:72px;font-weight:800;letter-spacing:-3px;line-height:1.0;margin-bottom:24px}
+.dl-h1 em{color:#fff500;font-style:normal}
+.dl-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.6);max-width:380px;line-height:1.65;margin-bottom:40px}
+.dl-buttons{display:flex;flex-direction:column;gap:10px;max-width:320px;margin-bottom:28px}
+.dl-btn{display:flex;align-items:center;gap:14px;padding:16px 22px;border-radius:2px;cursor:pointer;border:none;font-family:'Be Vietnam Pro',sans-serif;text-decoration:none;transition:opacity .15s}
+.dl-btn:hover{opacity:.88}
+.dl-btn-mac{background:#fff500;color:#000}
+.dl-btn-win{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2)}
+.dl-btn-icon{font-size:22px;line-height:1;flex-shrink:0}
+.dl-btn-text{display:flex;flex-direction:column;text-align:left}
+.dl-btn-sub{font-size:10px;font-weight:500;opacity:.6;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1px}
+.dl-btn-label{font-size:14px;font-weight:700}
+.dl-footnote{font-size:12px;color:rgba(255,255,255,.3);letter-spacing:.01em}
+
+/* Right panel */
+.dl-right{padding:80px 56px 80px 56px;display:flex;flex-direction:column;justify-content:flex-end}
+.dl-included-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:28px}
+.dl-features{display:flex;flex-direction:column;gap:0;margin-bottom:24px}
+.dl-feature{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.dl-feature:first-child{border-top:1px solid rgba(255,255,255,.07)}
+.dl-feature-icon{width:36px;height:36px;border-radius:6px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-top:1px}
+.dl-feature-body{}
+.dl-feature-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+.dl-feature-desc{font-size:13px;font-weight:300;color:rgba(255,255,255,.45);line-height:1.6}
+
+.dl-upsell{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:4px;padding:22px 24px;margin-top:4px}
+.dl-upsell-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px}
+.dl-upsell-desc{font-size:13px;font-weight:300;color:rgba(255,255,255,.45);margin-bottom:14px;line-height:1.6}
+.dl-upsell-link{font-size:13px;font-weight:700;color:#fff500;text-decoration:none}
+.dl-upsell-link:hover{opacity:.8}
+</style>
+</head><body>
+
+<nav>
+  <a href="lc8-landing-wireframe.html" class="nav-logo"><img src="lc8-logo.svg" alt="Loopcloud" style="height:20px;width:auto;display:block"></a>
+  <ul class="nav-links">
+    <li><a href="#" style="pointer-events:none;opacity:.4;cursor:default">Sounds</a></li>
+    <li><a href="lc8-features-wireframe.html">Features</a></li>
+    <li><a href="lc8-plugin-suite-wireframe.html">Plugin Suite</a></li>
+    <li><a href="lc8-subscription-wireframe.html">Pricing</a></li>
+    <li><a href="lc8-magazine-wireframe.html">Magazine</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="lc8-login-wireframe.html" style="text-decoration:none"><button class="nav-login">Log in</button></a>
+    <a href="lc8-subscription-wireframe.html" class="nav-cta">See plans</a>
+  </div>
+</nav>
+
+<div class="dl-wrap">
+
+  <!-- Left: Hero -->
+  <div class="dl-left">
+    <p class="dl-label">Free Download</p>
+    <h1 class="dl-h1">The full app.<br><em>No card.<br>No limits</em> on<br>browsing.</h1>
+    <p class="dl-sub">Download Loopcloud and start exploring 5 million sounds instantly. When you find what you love, grab a plan.</p>
+    <div class="dl-buttons">
+      <a class="dl-btn dl-btn-mac" href="#">
+        <span class="dl-btn-icon">&#63743;</span>
+        <span class="dl-btn-text">
+          <span class="dl-btn-sub">Download for</span>
+          <span class="dl-btn-label">Mac (Apple Silicon &amp; Intel)</span>
+        </span>
+      </a>
+      <a class="dl-btn dl-btn-win" href="#">
+        <span class="dl-btn-icon">⊞</span>
+        <span class="dl-btn-text">
+          <span class="dl-btn-sub">Download for</span>
+          <span class="dl-btn-label">Windows 10 / 11</span>
+        </span>
+      </a>
+    </div>
+    <p class="dl-footnote">Includes Desktop App · DRUM &amp; PLAY plugins · DAW plugin · VST3 / AU / AAX</p>
+  </div>
+
+  <!-- Right: What's included -->
+  <div class="dl-right">
+    <p class="dl-included-label">What's included free</p>
+    <div class="dl-features">
+      <div class="dl-feature">
+        <div class="dl-feature-icon">🎵</div>
+        <div class="dl-feature-body">
+          <p class="dl-feature-title">200 curated sounds</p>
+          <p class="dl-feature-desc">A hand-picked selection across genres — loops, one-shots, and stems. Yours to keep forever.</p>
+        </div>
+      </div>
+      <div class="dl-feature">
+        <div class="dl-feature-icon">🔍</div>
+        <div class="dl-feature-body">
+          <p class="dl-feature-title">Browse the full 5M catalogue</p>
+          <p class="dl-feature-desc">Search, filter, and preview everything. No paywalls on discovery — only on downloading.</p>
+        </div>
+      </div>
+      <div class="dl-feature">
+        <div class="dl-feature-icon">🥁</div>
+        <div class="dl-feature-body">
+          <p class="dl-feature-title">DRUM &amp; PLAY plugins</p>
+          <p class="dl-feature-desc">Full access to both instruments. Build kits, play presets, drag audio to your DAW.</p>
+        </div>
+      </div>
+      <div class="dl-feature">
+        <div class="dl-feature-icon">🔌</div>
+        <div class="dl-feature-body">
+          <p class="dl-feature-title">DAW sync plugin</p>
+          <p class="dl-feature-desc">Install the Loopcloud plugin inside your DAW for real-time BPM and key sync.</p>
+        </div>
+      </div>
+    </div>
+    <div class="dl-upsell">
+      <p class="dl-upsell-title">Want more sounds?</p>
+      <p class="dl-upsell-desc">Plans start at £7.99/mo. Cancel anytime. All features on every plan.</p>
+      <a href="lc8-subscription-wireframe.html" class="dl-upsell-link">See plans →</a>
+    </div>
+  </div>
+
+</div>
+
+</body></html>
